@@ -11,7 +11,6 @@ import os
 
 import requests
 import pytz
-from etf_strategy import ETFStrategyAnalyzer
 
 CONFIG = {
     "VERSION": "1.3.0",
@@ -1020,30 +1019,6 @@ class ReportGenerator:
         report_data = ReportGenerator._prepare_report_data(
             stats, failed_ids, new_titles, id_to_alias
         )
-        
-        # ETF策略分析
-        try:
-            print("📊 HTML报告中开始ETF策略分析...")
-            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
-            all_news_titles = []
-            
-            # 收集所有新闻标题用于重大事件检测
-            for stat in stats:
-                for title_data in stat.get("titles", []):
-                    all_news_titles.append(title_data.get("title", ""))
-            
-            # 收集新增新闻标题
-            if new_titles:
-                for titles_data in new_titles.values():
-                    if isinstance(titles_data, dict):
-                        all_news_titles.extend(titles_data.keys())
-            
-            etf_strategy_results = etf_analyzer.analyze_strategy(all_news_titles)
-            report_data["etf_strategy"] = etf_strategy_results
-            print("✅ HTML报告ETF策略分析完成")
-        except Exception as e:
-            print(f"⚠️ HTML报告ETF策略分析失败: {e}")
-            report_data["etf_strategy"] = {}
 
         # 渲染层
         html_content = ReportGenerator._render_html_content(
@@ -1367,58 +1342,7 @@ class ReportGenerator:
 
             html += "</div>"
 
-        # 渲染ETF策略分析结果
-        if report_data.get("etf_strategy"):
-            html += """
-            <div class="etf-section">
-                <h3>💰 ETF加仓策略判断</h3>
-            """
-            
-            for index_name, strategy_result in report_data["etf_strategy"].items():
-                escaped_index = ReportGenerator._html_escape(index_name)
-                # 处理策略结果中的markdown格式，转换为HTML
-                escaped_result = ReportGenerator._html_escape(strategy_result)
-                escaped_result = escaped_result.replace("**", "<strong>").replace("**", "</strong>")
-                escaped_result = escaped_result.replace("\n", "<br>")
-                
-                html += f"""
-                <div class="etf-item">
-                    <h4>{escaped_index}</h4>
-                    <p>{escaped_result}</p>
-                </div>
-                """
-            
-            html += "</div>"
-
         html += """
-            <style>
-                .etf-section {
-                    background-color: #f8f9fa;
-                    border: 1px solid #dee2e6;
-                    border-radius: 5px;
-                    padding: 15px;
-                    margin-top: 20px;
-                }
-                .etf-section h3 {
-                    color: #495057;
-                    margin-top: 0;
-                }
-                .etf-item {
-                    background-color: white;
-                    border: 1px solid #e9ecef;
-                    border-radius: 3px;
-                    padding: 10px;
-                    margin: 10px 0;
-                }
-                .etf-item h4 {
-                    color: #007bff;
-                    margin: 0 0 8px 0;
-                }
-                .etf-item p {
-                    margin: 0;
-                    line-height: 1.5;
-                }
-            </style>
         </body>
         </html>
         """
@@ -1613,16 +1537,6 @@ class ReportGenerator:
             for i, id_value in enumerate(report_data["failed_ids"], 1):
                 text_content += f"  • <font color='red'>{id_value}</font>\n"
 
-        # ETF策略分析结果
-        if report_data.get("etf_strategy"):
-            if text_content and "暂无匹配" not in text_content:
-                text_content += f"\n{CONFIG['FEISHU_MESSAGE_SEPARATOR']}\n\n"
-            
-            text_content += "💰 **ETF加仓策略判断**\n\n"
-            
-            for index_name, strategy_result in report_data["etf_strategy"].items():
-                text_content += f"**{index_name}：**\n{strategy_result}\n\n"
-
         # 添加时间戳
         now = TimeHelper.get_beijing_time()
         text_content += f"\n\n<font color='grey'>更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}</font>"
@@ -1721,16 +1635,6 @@ class ReportGenerator:
             text_content += "⚠️ **数据获取失败的平台：**\n\n"
             for i, id_value in enumerate(report_data["failed_ids"], 1):
                 text_content += f"  • **{id_value}**\n"
-
-        # ETF策略分析结果
-        if report_data.get("etf_strategy"):
-            if text_content and "暂无匹配" not in text_content:
-                text_content += f"\n---\n\n"
-            
-            text_content += "💰 **ETF加仓策略判断**\n\n"
-            
-            for index_name, strategy_result in report_data["etf_strategy"].items():
-                text_content += f"**{index_name}：**\n\n{strategy_result}\n\n"
 
         # 添加时间戳
         text_content += f"\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
@@ -2033,48 +1937,6 @@ class ReportGenerator:
 
                 current_batch += "\n"
 
-        # 处理ETF策略分析结果
-        if report_data.get("etf_strategy"):
-            etf_header = ""
-            if format_type == "wework":
-                etf_header = f"\n\n\n\n💰 **ETF加仓策略判断**\n\n"
-            elif format_type == "telegram":
-                etf_header = f"\n\n💰 ETF加仓策略判断\n\n"
-
-            test_content = current_batch + etf_header
-            if (
-                len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-                >= max_bytes
-            ):
-                if current_batch_has_content:
-                    batches.append(current_batch + base_footer)
-                current_batch = base_header + etf_header
-                current_batch_has_content = True
-            else:
-                current_batch = test_content
-                current_batch_has_content = True
-
-            # 逐个处理ETF策略分析结果
-            for index_name, strategy_result in report_data["etf_strategy"].items():
-                etf_content = ""
-                if format_type == "wework":
-                    etf_content = f"**{index_name}：**\n\n{strategy_result}\n\n"
-                elif format_type == "telegram":
-                    etf_content = f"{index_name}：\n\n{strategy_result}\n\n"
-
-                test_content = current_batch + etf_content
-                if (
-                    len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
-                    >= max_bytes
-                ):
-                    if current_batch_has_content:
-                        batches.append(current_batch + base_footer)
-                    current_batch = base_header + etf_header + etf_content
-                    current_batch_has_content = True
-                else:
-                    current_batch = test_content
-                    current_batch_has_content = True
-
         # 处理失败平台
         if report_data["failed_ids"]:
             failed_header = ""
@@ -2134,30 +1996,6 @@ class ReportGenerator:
         report_data = ReportGenerator._prepare_report_data(
             stats, failed_ids, new_titles, id_to_alias
         )
-        
-        # ETF策略分析
-        try:
-            print("📊 开始ETF策略分析...")
-            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
-            all_news_titles = []
-            
-            # 收集所有新闻标题用于重大事件检测
-            for stat in stats:
-                for title_data in stat.get("titles", []):
-                    all_news_titles.append(title_data.get("title", ""))
-            
-            # 收集新增新闻标题
-            if new_titles:
-                for titles_data in new_titles.values():
-                    if isinstance(titles_data, dict):
-                        all_news_titles.extend(titles_data.keys())
-            
-            etf_strategy_results = etf_analyzer.analyze_strategy(all_news_titles)
-            report_data["etf_strategy"] = etf_strategy_results
-            print("✅ ETF策略分析完成")
-        except Exception as e:
-            print(f"⚠️ ETF策略分析失败: {e}")
-            report_data["etf_strategy"] = {}
 
         # 获取环境变量中的webhook配置
         feishu_url = os.environ.get("FEISHU_WEBHOOK_URL", CONFIG["FEISHU_WEBHOOK_URL"])

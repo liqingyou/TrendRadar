@@ -1025,7 +1025,7 @@ class ReportGenerator:
         try:
             print("📊 HTML报告中开始ETF策略分析...")
             proxy_url = CONFIG["DEFAULT_PROXY"] if CONFIG["USE_PROXY"] else None
-            etf_analyzer = ETFStrategyAnalyzer(proxy_url=proxy_url, use_proxy=CONFIG["USE_PROXY"])
+            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
             all_news_titles = []
             
             # 收集所有新闻标题用于重大事件检测
@@ -2140,7 +2140,7 @@ class ReportGenerator:
         try:
             print("📊 开始ETF策略分析...")
             proxy_url = CONFIG["DEFAULT_PROXY"] if CONFIG["USE_PROXY"] else None
-            etf_analyzer = ETFStrategyAnalyzer(proxy_url=proxy_url, use_proxy=CONFIG["USE_PROXY"])
+            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
             all_news_titles = []
             
             # 收集所有新闻标题用于重大事件检测

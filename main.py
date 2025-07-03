@@ -21,7 +21,7 @@ CONFIG = {
     "REQUEST_INTERVAL": 1000,  # 请求间隔(毫秒)
     "REPORT_TYPE": "daily",  # 报告类型: "current"|"daily"|"both"
     "RANK_THRESHOLD": 5,  # 排名高亮阈值
-    "USE_PROXY": True,  # 是否启用代理
+    "USE_PROXY": False,  # 是否启用代理（GitHub Actions环境建议设为False）
     "DEFAULT_PROXY": "http://127.0.0.1:10809",
     "ENABLE_CRAWLER": True,  # 是否启用爬取新闻功能，False时直接停止程序
     "ENABLE_NOTIFICATION": True,  # 是否启用通知功能，False时不发送手机通知

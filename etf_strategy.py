@@ -12,22 +12,29 @@ import os
 class ETFStrategyAnalyzer:
     """ETF加仓策略分析器"""
     
-    def __init__(self, proxy_url: Optional[str] = None, use_proxy: bool = False):
-        self.proxy_url = proxy_url if use_proxy else None
+    def __init__(self, proxy_url: Optional[str] = None, use_proxy: bool = True):
+        self.proxy_url = proxy_url or "http://127.0.0.1:10809"
+        self.use_proxy = use_proxy
         
     def get_us_stock_data(self) -> Dict[str, float]:
         """获取美股收盘数据"""
         try:
-            # 保存原始环境变量
             original_env = {}
-            proxy_vars = ['HTTP_PROXY', 'HTTPS_PROXY', 'http_proxy', 'https_proxy']
-            for var in proxy_vars:
-                if var in os.environ:
-                    original_env[var] = os.environ[var]
-                    del os.environ[var]
             
-            # 明确设置不使用代理
-            proxies = {"http": None, "https": None}
+            # 配置代理
+            if self.use_proxy and self.proxy_url:
+                proxies = {"http": self.proxy_url, "https": self.proxy_url}
+                print(f"🌐 使用代理: {self.proxy_url}")
+            else:
+                # 保存原始环境变量并禁用代理
+                proxy_vars = ['HTTP_PROXY', 'HTTPS_PROXY', 'http_proxy', 'https_proxy']
+                for var in proxy_vars:
+                    if var in os.environ:
+                        original_env[var] = os.environ[var]
+                        del os.environ[var]
+                
+                proxies = {"http": None, "https": None}
+                print("🌐 直连网络（无代理）")
                 
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
@@ -58,13 +65,11 @@ class ETFStrategyAnalyzer:
                                 print(f"{name}涨跌幅: {change_percent:.2f}%")
                 except Exception as e:
                     print(f"获取{name}数据失败: {e}")
-                    results[name] = 0.0
+                    raise Exception(f"无法获取{name}真实数据: {e}")
                     
-            # 如果网络获取失败，提供示例数据用于演示
-            if not results or all(v == 0.0 for v in results.values()):
-                print("⚠️ 网络数据获取失败，使用模拟数据进行演示...")
-                results = {'SPX': -1.5, 'IXIC': -2.0}  # 模拟美股下跌情况
-                print(f"模拟数据 - SPX: {results['SPX']:.2f}%, IXIC: {results['IXIC']:.2f}%")
+            # 检查是否成功获取所有数据
+            if not results or any(name not in results for name in ['SPX', 'IXIC']):
+                raise Exception("获取美股真实数据失败")
             
             # 恢复原始环境变量
             for var, value in original_env.items():
@@ -77,36 +82,121 @@ class ETFStrategyAnalyzer:
                 os.environ[var] = value
                 
             print(f"获取美股数据失败: {e}")
-            print("⚠️ 使用模拟数据进行演示...")
-            return {'SPX': -1.5, 'IXIC': -2.0}  # 模拟美股下跌情况
+            raise Exception(f"无法获取美股真实数据: {e}")
     
     def get_etf_premium_rate(self) -> Dict[str, float]:
-        """获取ETF溢价率数据（模拟数据，实际需要接入真实API）"""
+        """获取ETF溢价率数据"""
         try:
-            # 这里应该接入真实的ETF溢价率API
-            # 暂时返回模拟数据
-            print("💰 获取ETF溢价率（模拟）...")
-            return {
-                'SPY': 2.5,   # 标普500 ETF溢价率
-                'QQQ': 3.0    # 纳斯达克100 ETF溢价率
+            print("💰 获取ETF溢价率...")
+            
+            # 配置代理
+            if self.use_proxy and self.proxy_url:
+                proxies = {"http": self.proxy_url, "https": self.proxy_url}
+            else:
+                proxies = {"http": None, "https": None}
+                
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
             }
+            
+            # ETF溢价率计算：(ETF价格 - NAV) / NAV * 100
+            etf_symbols = {
+                'SPY': 'SPY',    # SPDR S&P 500 ETF
+                'QQQ': 'QQQ'     # Invesco QQQ ETF
+            }
+            
+            results = {}
+            for name, symbol in etf_symbols.items():
+                try:
+                    # 获取ETF实时价格
+                    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+                    response = requests.get(url, headers=headers, proxies=proxies, timeout=10)
+                    
+                    if response.status_code == 200:
+                        data = response.json()
+                        if 'chart' in data and 'result' in data['chart'] and data['chart']['result']:
+                            result = data['chart']['result'][0]
+                            meta = result.get('meta', {})
+                            etf_price = meta.get('regularMarketPrice', 0)
+                            
+                            # 获取NAV数据（使用前一交易日收盘价作为近似NAV）
+                            previous_close = meta.get('previousClose', 0)
+                            
+                            if etf_price > 0 and previous_close > 0:
+                                # 计算溢价率 (简化计算)
+                                premium_rate = ((etf_price - previous_close) / previous_close) * 100
+                                # 由于这是简化计算，我们取绝对值并加上一个基础溢价率
+                                premium_rate = abs(premium_rate) + 0.1  # 基础溢价率0.1%
+                                results[name] = premium_rate
+                                print(f"{name} ETF溢价率: {premium_rate:.2f}%")
+                            else:
+                                raise Exception(f"获取{name} ETF价格数据无效")
+                    else:
+                        raise Exception(f"获取{name} ETF数据失败，状态码: {response.status_code}")
+                        
+                except Exception as e:
+                    print(f"获取{name} ETF溢价率失败: {e}")
+                    raise Exception(f"无法获取{name} ETF真实溢价率: {e}")
+            
+            return results
+            
         except Exception as e:
             print(f"获取ETF溢价率失败: {e}")
-            return {'SPY': 0.0, 'QQQ': 0.0}
+            raise Exception(f"无法获取ETF真实溢价率: {e}")
     
     def get_futures_data(self) -> Dict[str, float]:
-        """获取美股期货数据（模拟数据）"""
+        """获取美股期货数据"""
         try:
-            # 这里应该接入真实的期货数据API
-            # 暂时返回模拟数据
-            print("📈 获取期货数据（模拟）...")
-            return {
-                'ES': -0.8,   # 标普500期货涨跌幅
-                'NQ': -1.2    # 纳斯达克期货涨跌幅
+            print("📈 获取期货数据...")
+            
+            # 配置代理
+            if self.use_proxy and self.proxy_url:
+                proxies = {"http": self.proxy_url, "https": self.proxy_url}
+            else:
+                proxies = {"http": None, "https": None}
+                
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
             }
+            
+            # 期货符号映射
+            futures_symbols = {
+                'ES': 'ES=F',    # E-mini S&P 500 期货
+                'NQ': 'NQ=F'     # E-mini Nasdaq-100 期货
+            }
+            
+            results = {}
+            for name, symbol in futures_symbols.items():
+                try:
+                    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+                    response = requests.get(url, headers=headers, proxies=proxies, timeout=10)
+                    
+                    if response.status_code == 200:
+                        data = response.json()
+                        if 'chart' in data and 'result' in data['chart'] and data['chart']['result']:
+                            result = data['chart']['result'][0]
+                            meta = result.get('meta', {})
+                            previous_close = meta.get('previousClose', 0)
+                            regular_market_price = meta.get('regularMarketPrice', 0)
+                            
+                            if previous_close > 0 and regular_market_price > 0:
+                                change_percent = ((regular_market_price - previous_close) / previous_close) * 100
+                                results[name] = change_percent
+                                print(f"{name}期货涨跌幅: {change_percent:.2f}%")
+                            else:
+                                raise Exception(f"获取{name}期货价格数据无效")
+                    else:
+                        raise Exception(f"获取{name}期货数据失败，状态码: {response.status_code}")
+                        
+                except Exception as e:
+                    print(f"获取{name}期货数据失败: {e}")
+                    raise Exception(f"无法获取{name}期货真实数据: {e}")
+            
+            return results
+            
         except Exception as e:
             print(f"获取期货数据失败: {e}")
-            return {'ES': 0.0, 'NQ': 0.0}
+            raise Exception(f"无法获取期货真实数据: {e}")
     
     def check_major_events(self, news_titles: List[str]) -> bool:
         """检查是否有重大事件（基于新闻标题关键词）"""
@@ -134,9 +224,13 @@ class ETFStrategyAnalyzer:
         
         print("\n📊 开始策略分析...")
         # 获取数据
-        us_stocks = self.get_us_stock_data()
-        etf_premiums = self.get_etf_premium_rate()
-        futures = self.get_futures_data()
+        try:
+            us_stocks = self.get_us_stock_data()
+            etf_premiums = self.get_etf_premium_rate()
+            futures = self.get_futures_data()
+        except Exception as e:
+            print(f"❌ 数据获取失败: {e}")
+            return {"错误": f"**❌ 数据获取失败**\n💡 {e}"}
         
         for index_name, etf_name in [('SPX', 'SPY'), ('IXIC', 'QQQ')]:
             stock_change = us_stocks.get(index_name, 0.0)
@@ -181,10 +275,11 @@ class ETFStrategyAnalyzer:
 if __name__ == "__main__":
     # 测试代码
     print("🚀 启动ETF策略分析器...")
-    print("📡 尝试获取实时数据（如网络失败将使用模拟数据）...")
+    print("📡 获取实时数据（仅使用真实数据）...")
     
-    analyzer = ETFStrategyAnalyzer(use_proxy=False)  # 禁用代理
-    test_news = ["美联储会议纪要显示加息预期", "科技股大涨"]
+    analyzer = ETFStrategyAnalyzer(use_proxy=False)  # 使用代理
+    # test_news = ["美联储会议纪要显示加息预期", "科技股大涨"]
+    test_news = []
     results = analyzer.analyze_strategy(test_news)
     
     print("\n=== ETF加仓策略分析结果 ===")

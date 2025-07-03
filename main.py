@@ -22,7 +22,7 @@ CONFIG = {
     "REPORT_TYPE": "daily",  # 报告类型: "current"|"daily"|"both"
     "RANK_THRESHOLD": 5,  # 排名高亮阈值
     "USE_PROXY": True,  # 是否启用代理
-    "DEFAULT_PROXY": "http://127.0.0.1:10086",
+    "DEFAULT_PROXY": "http://127.0.0.1:10809",
     "ENABLE_CRAWLER": True,  # 是否启用爬取新闻功能，False时直接停止程序
     "ENABLE_NOTIFICATION": True,  # 是否启用通知功能，False时不发送手机通知
     "MESSAGE_BATCH_SIZE": 4000,  # 消息分批大小（字节）
@@ -1024,7 +1024,8 @@ class ReportGenerator:
         # ETF策略分析
         try:
             print("📊 HTML报告中开始ETF策略分析...")
-            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
+            proxy_url = CONFIG["DEFAULT_PROXY"] if CONFIG["USE_PROXY"] else None
+            etf_analyzer = ETFStrategyAnalyzer(proxy_url=proxy_url, use_proxy=CONFIG["USE_PROXY"])
             all_news_titles = []
             
             # 收集所有新闻标题用于重大事件检测
@@ -2138,7 +2139,8 @@ class ReportGenerator:
         # ETF策略分析
         try:
             print("📊 开始ETF策略分析...")
-            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
+            proxy_url = CONFIG["DEFAULT_PROXY"] if CONFIG["USE_PROXY"] else None
+            etf_analyzer = ETFStrategyAnalyzer(proxy_url=proxy_url, use_proxy=CONFIG["USE_PROXY"])
             all_news_titles = []
             
             # 收集所有新闻标题用于重大事件检测

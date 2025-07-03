@@ -99,8 +99,13 @@ class VersionChecker:
         """检查是否有新版本"""
         try:
             proxies = None
-            if proxy_url:
+            # 在GitHub Actions环境中强制禁用代理
+            is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+            if proxy_url and not is_github_actions:
                 proxies = {"http": proxy_url, "https": proxy_url}
+            elif is_github_actions:
+                # GitHub Actions环境强制设置不使用代理
+                proxies = {"http": None, "https": None}
 
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -166,8 +171,13 @@ class DataFetcher:
         url = f"https://newsnow.busiyi.world/api/s?id={id_value}&latest"
 
         proxies = None
-        if self.proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if self.proxy_url and not is_github_actions:
             proxies = {"http": self.proxy_url, "https": self.proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
@@ -2238,8 +2248,13 @@ class ReportGenerator:
         }
 
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         try:
             response = requests.post(
@@ -2281,8 +2296,13 @@ class ReportGenerator:
         }
 
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         try:
             response = requests.post(
@@ -2318,8 +2338,13 @@ class ReportGenerator:
         """发送到企业微信（支持分批发送）"""
         headers = {"Content-Type": "application/json"}
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         # 获取分批内容
         batches = ReportGenerator._split_content_into_batches(
@@ -2392,8 +2417,13 @@ class ReportGenerator:
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
 
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         # 获取分批内容
         batches = ReportGenerator._split_content_into_batches(

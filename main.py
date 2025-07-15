@@ -2273,6 +2273,226 @@ class ReportGenerator:
             return False
 
     @staticmethod
+    def _split_dingtalk_content(
+        report_data: Dict,
+        update_info: Optional[Dict] = None,
+        max_bytes: int = 18000,  # 钉钉限制20000字节，保留2000字节缓冲
+    ) -> List[str]:
+        """为钉钉分批处理消息内容"""
+        batches = []
+
+        # 基础信息构建
+        total_titles = sum(
+            len(stat["titles"]) for stat in report_data["stats"] if stat["count"] > 0
+        )
+        now = TimeHelper.get_beijing_time()
+
+        base_header = f"**总新闻数：** {total_titles}\n\n"
+        base_header += f"**时间：** {now.strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+        base_header += f"**类型：** 热点分析报告\n\n"
+        base_header += "---\n\n"
+
+        base_footer = f"\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
+        if update_info:
+            base_footer += f"\n> TrendRadar 发现新版本 **{update_info['remote_version']}**，当前 **{update_info['current_version']}**"
+
+        current_batch = base_header
+        current_batch_has_content = False
+
+        # 空内容处理
+        if (
+            not report_data["stats"]
+            and not report_data["new_titles"]
+            and not report_data["failed_ids"]
+            and not report_data.get("etf_strategy")
+        ):
+            simple_content = "📭 暂无匹配的热点词汇\n\n"
+            final_content = base_header + simple_content + base_footer
+            batches.append(final_content)
+            return batches
+
+        # 处理热点词汇统计
+        if report_data["stats"]:
+            stats_header = "📊 **热点词汇统计**\n\n"
+            total_count = len(report_data["stats"])
+
+            # 添加统计标题
+            test_content = current_batch + stats_header
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) < max_bytes:
+                current_batch = test_content
+                current_batch_has_content = True
+            else:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + stats_header
+                current_batch_has_content = True
+
+            # 处理每个词组
+            for i, stat in enumerate(report_data["stats"]):
+                word = stat["word"]
+                count = stat["count"]
+                sequence_display = f"[{i + 1}/{total_count}]"
+
+                # 构建词组标题
+                if count >= 10:
+                    word_header = f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
+                elif count >= 5:
+                    word_header = f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
+                else:
+                    word_header = f"📌 {sequence_display} **{word}** : {count} 条\n\n"
+
+                # 构建第一条新闻（确保原子性）
+                first_news_line = ""
+                if stat["titles"]:
+                    first_title_data = stat["titles"][0]
+                    formatted_title = ReportGenerator._format_title_dingtalk(
+                        first_title_data, show_source=True
+                    )
+                    first_news_line = f"  1. {formatted_title}\n"
+                    if len(stat["titles"]) > 1:
+                        first_news_line += "\n"
+
+                # 原子性检查：词组标题+第一条新闻必须一起处理
+                word_with_first_news = word_header + first_news_line
+                test_content = current_batch + word_with_first_news
+
+                if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                    # 当前批次容纳不下，开启新批次
+                    if current_batch_has_content:
+                        batches.append(current_batch + base_footer)
+                    current_batch = base_header + stats_header + word_with_first_news
+                    current_batch_has_content = True
+                    start_index = 1
+                else:
+                    current_batch = test_content
+                    current_batch_has_content = True
+                    start_index = 1
+
+                # 处理剩余新闻条目
+                for j in range(start_index, len(stat["titles"])):
+                    title_data = stat["titles"][j]
+                    formatted_title = ReportGenerator._format_title_dingtalk(
+                        title_data, show_source=True
+                    )
+                    news_line = f"  {j + 1}. {formatted_title}\n"
+                    if j < len(stat["titles"]) - 1:
+                        news_line += "\n"
+
+                    test_content = current_batch + news_line
+                    if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                        if current_batch_has_content:
+                            batches.append(current_batch + base_footer)
+                        current_batch = base_header + stats_header + word_header + news_line
+                        current_batch_has_content = True
+                    else:
+                        current_batch = test_content
+
+                # 词组间分隔符
+                if i < len(report_data["stats"]) - 1:
+                    separator = f"\n---\n\n"
+                    test_content = current_batch + separator
+                    if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) < max_bytes:
+                        current_batch = test_content
+
+        # 处理新增新闻
+        if report_data["new_titles"]:
+            new_header = f"\n---\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+            
+            # 检查是否能添加到当前批次
+            test_content = current_batch + new_header
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + new_header
+                current_batch_has_content = True
+            else:
+                current_batch = test_content
+                current_batch_has_content = True
+
+            # 处理新增新闻内容
+            for source_data in report_data["new_titles"]:
+                source_header = f"**{source_data['source_alias']}** ({len(source_data['titles'])} 条):\n\n"
+                
+                test_content = current_batch + source_header
+                if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                    if current_batch_has_content:
+                        batches.append(current_batch + base_footer)
+                    current_batch = base_header + new_header + source_header
+                    current_batch_has_content = True
+                else:
+                    current_batch = test_content
+
+                # 处理该来源的新闻标题
+                for j, title_data in enumerate(source_data["titles"], 1):
+                    title_data_copy = title_data.copy()
+                    title_data_copy["is_new"] = False
+                    formatted_title = ReportGenerator._format_title_dingtalk(
+                        title_data_copy, show_source=False
+                    )
+                    news_line = f"  {j}. {formatted_title}\n"
+
+                    test_content = current_batch + news_line
+                    if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                        if current_batch_has_content:
+                            batches.append(current_batch + base_footer)
+                        current_batch = base_header + new_header + source_header + news_line
+                        current_batch_has_content = True
+                    else:
+                        current_batch = test_content
+
+                current_batch += "\n"
+
+        # 处理失败平台
+        if report_data["failed_ids"]:
+            failed_header = f"\n---\n\n⚠️ **数据获取失败的平台：**\n\n"
+            failed_content = ""
+            for i, id_value in enumerate(report_data["failed_ids"], 1):
+                failed_content += f"  • **{id_value}**\n"
+
+            full_failed_section = failed_header + failed_content
+            test_content = current_batch + full_failed_section
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + full_failed_section
+                current_batch_has_content = True
+            else:
+                current_batch = test_content
+
+        # 处理ETF策略分析
+        if report_data.get("etf_strategy"):
+            etf_header = f"\n---\n\n💰 **ETF加仓策略判断**\n\n"
+            
+            test_content = current_batch + etf_header
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + etf_header
+                current_batch_has_content = True
+            else:
+                current_batch = test_content
+
+            for index_name, strategy_result in report_data["etf_strategy"].items():
+                etf_content = f"**{index_name}：**\n\n{strategy_result}\n\n"
+                
+                test_content = current_batch + etf_content
+                if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                    if current_batch_has_content:
+                        batches.append(current_batch + base_footer)
+                    current_batch = base_header + etf_header + etf_content
+                    current_batch_has_content = True
+                else:
+                    current_batch = test_content
+
+        # 添加最后一个批次
+        if current_batch_has_content:
+            batches.append(current_batch + base_footer)
+        elif not batches:  # 如果没有任何批次，添加一个空批次
+            batches.append(base_header + "📭 暂无内容\n\n" + base_footer)
+
+        return batches
+
+    @staticmethod
     def _send_to_dingtalk(
         webhook_url: str,
         report_data: Dict,
@@ -2280,20 +2500,11 @@ class ReportGenerator:
         update_info: Optional[Dict] = None,
         proxy_url: Optional[str] = None,
     ) -> bool:
-        """发送到钉钉"""
+        """发送到钉钉（支持消息分割）"""
         headers = {"Content-Type": "application/json"}
 
-        text_content = ReportGenerator._render_dingtalk_content(
-            report_data, update_info
-        )
-
-        payload = {
-            "msgtype": "markdown",
-            "markdown": {
-                "title": f"TrendRadar 热点分析报告 - {report_type}",
-                "text": text_content,
-            },
-        }
+        # 获取分批内容
+        content_batches = ReportGenerator._split_dingtalk_content(report_data, update_info)
 
         proxies = None
         # 在GitHub Actions环境中强制禁用代理
@@ -2304,27 +2515,51 @@ class ReportGenerator:
             # GitHub Actions环境强制设置不使用代理
             proxies = {"http": None, "https": None}
 
-        try:
-            response = requests.post(
-                webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
-            )
-            if response.status_code == 200:
-                result = response.json()
-                if result.get("errcode") == 0:
-                    print(f"钉钉通知发送成功 [{report_type}]")
-                    return True
-                else:
-                    print(
-                        f"钉钉通知发送失败 [{report_type}]，错误：{result.get('errmsg')}"
-                    )
-                    return False
-            else:
-                print(
-                    f"钉钉通知发送失败 [{report_type}]，状态码：{response.status_code}"
+        success_count = 0
+        total_batches = len(content_batches)
+
+        for i, text_content in enumerate(content_batches, 1):
+            batch_title = f"TrendRadar 热点分析报告 - {report_type}"
+            if total_batches > 1:
+                batch_title += f" (第{i}页/共{total_batches}页)"
+            
+            payload = {
+                "msgtype": "markdown",
+                "markdown": {
+                    "title": batch_title,
+                    "text": text_content,
+                },
+            }
+
+            try:
+                response = requests.post(
+                    webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
                 )
-                return False
-        except Exception as e:
-            print(f"钉钉通知发送出错 [{report_type}]：{e}")
+                if response.status_code == 200:
+                    result = response.json()
+                    if result.get("errcode") == 0:
+                        print(f"钉钉通知第{i}页发送成功 [{report_type}]")
+                        success_count += 1
+                    else:
+                        print(f"钉钉通知第{i}页发送失败 [{report_type}]，错误：{result.get('errmsg')}")
+                        # 检查是否是body大小错误
+                        if "body 大小不合法" in str(result.get('errmsg', '')):
+                            print(f"⚠️ 第{i}页内容大小: {len(text_content.encode('utf-8'))} 字节")
+                else:
+                    print(f"钉钉通知第{i}页发送失败 [{report_type}]，状态码：{response.status_code}")
+            except Exception as e:
+                print(f"钉钉通知第{i}页发送出错 [{report_type}]：{e}")
+
+            # 批次间延迟，避免发送过快
+            if i < total_batches:
+                time.sleep(CONFIG["BATCH_SEND_INTERVAL"])
+
+        # 如果至少有一半的批次发送成功，就认为整体成功
+        if success_count > 0:
+            print(f"钉钉通知发送完成 [{report_type}]：{success_count}/{total_batches} 页发送成功")
+            return True
+        else:
+            print(f"钉钉通知发送失败 [{report_type}]：所有批次均发送失败")
             return False
 
     @staticmethod

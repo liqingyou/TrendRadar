@@ -486,7 +486,8 @@ class ETFStrategyAnalyzer:
                 
         # 重大事件简化提醒
         if has_major_events and len(events) > 0:
-            result += f"\n⚠️ **事件**: {events[0].split("'")[1] if "'" in events[0] else '重大事件'}"
+            event_name = events[0].split("'")[1] if "'" in events[0] else '重大事件'
+            result += f"\n⚠️ **事件**: {event_name}"
                 
         return result
 

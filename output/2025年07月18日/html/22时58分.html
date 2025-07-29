@@ -1,0 +1,232 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>频率词统计报告</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1, h2 { color: #333; }
+                table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                tr:nth-child(even) { background-color: #f9f9f9; }
+                .word { font-weight: bold; }
+                .count { text-align: center; }
+                .percentage { text-align: center; }
+                .titles { max-width: 500px; }
+                .source { color: #666; font-style: italic; }
+                .error { color: #d9534f; }
+                .news-link { 
+                    color: #007bff; 
+                    text-decoration: none; 
+                    border-bottom: 1px dotted #007bff;
+                }
+                .news-link:hover { 
+                    color: #0056b3; 
+                    text-decoration: underline; 
+                }
+                .news-link:visited { 
+                    color: #6f42c1; 
+                }
+                .no-link { 
+                    color: #333; 
+                }
+                .new-title {
+                    background-color: #fff3cd;
+                    border: 1px solid #ffc107;
+                    border-radius: 3px;
+                    padding: 2px 6px;
+                    margin: 2px 0;
+                }
+                .new-section {
+                    background-color: #d1ecf1;
+                    border: 1px solid #bee5eb;
+                    border-radius: 5px;
+                    padding: 10px;
+                    margin-top: 10px;
+                }
+                .new-section h3 {
+                    color: #0c5460;
+                    margin-top: 0;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>频率词统计报告</h1>
+        <p>总标题数: 255</p><p>生成时间: 2025-07-18 22:58:38</p>
+            <table>
+                <tr>
+                    <th>排名</th>
+                    <th>频率词</th>
+                    <th>出现次数</th>
+                    <th>占比</th>
+                    <th>相关标题</th>
+                </tr>
+        
+                <tr>
+                    <td>1</td>
+                    <td class="word">特朗普 川普 美联储</td>
+                    <td class="count">6</td>
+                    <td class="percentage">2.35%</td>
+                    <td class="titles">[凤凰网] <a href="https://news.ifeng.com/c/8l64cb6sDxW" target="_blank" class="news-link">特朗普最新支持率公布</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 22时58分</font><br>[华尔街见闻] <a href="https://wallstreetcn.com/articles/3751361" target="_blank" class="news-link">9万亿美元401k！特朗普将允许美国养老金投资黄金、加密货币、PE等另类资产</a> <font color='red'><strong>[2]</strong></font> <font color='grey'>- 22时58分</font><br>[澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31208640" target="_blank" class="news-link">特朗普被确诊患静脉疾病</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 22时58分</font><br>[凤凰网] <a href="https://news.ifeng.com/c/8l5tS8j2Dkk" target="_blank" class="news-link">加州起诉特朗普政府：美国政府对高铁的投资，比中国少太多了</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 22时58分</font><br>[华尔街见闻] <a href="https://wallstreetcn.com/articles/3751354" target="_blank" class="news-link">美国众议院压倒性优势投票通过三大加密货币法案，白宫称特朗普周五签字</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 22时58分</font><br>[zhihu] <a href="https://www.zhihu.com/question/1929441735496394493" target="_blank" class="news-link">美国总统特朗普被确诊患慢性静脉功能不全，这是一种怎样的病？对他影响有多大？</a> [16] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="word">京东 刘强东</td>
+                    <td class="count">5</td>
+                    <td class="percentage">1.96%</td>
+                    <td class="titles">[百度热搜] <a href="https://www.baidu.com/s?wd=%E9%A5%BF%E4%BA%86%E4%B9%88%E3%80%81%E7%BE%8E%E5%9B%A2%E3%80%81%E4%BA%AC%E4%B8%9C%E8%A2%AB%E7%BA%A6%E8%B0%88" target="_blank" class="news-link">饿了么、美团、京东被约谈</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 22时58分</font><br>[bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BE%8E%E5%9B%A2%E4%BA%AC%E4%B8%9C%E8%A2%AB%E7%BA%A6%E8%B0%88" target="_blank" class="news-link">饿了么美团京东被约谈</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 22时58分</font><br>[douyin] <a href="https://www.douyin.com/hot/2172442" target="_blank" class="news-link">市监总局约谈饿了么美团京东</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 22时58分</font><br>[weibo] <a href="https://m.weibo.cn/search?containerid=231522type%3D1%26q%3D%23%E5%B8%82%E7%9B%91%E6%80%BB%E5%B1%80%E7%BA%A6%E8%B0%88%E9%A5%BF%E4%BA%86%E4%B9%88%E7%BE%8E%E5%9B%A2%E4%BA%AC%E4%B8%9C%23&amp;_T_WM=16922097837&amp;v_p=42" target="_blank" class="news-link">市监总局约谈饿了么美团京东</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 22时58分</font><br><div class='new-title'>🆕 [zhihu] <a href="https://www.zhihu.com/question/1929637433248577177" target="_blank" class="news-link">市场监管总局约谈饿了么、美团、京东三家平台企业，要求外卖平台企业理性竞争，哪些信息值得关注？</a> [6] <font color='grey'>- 22时58分</font></div></td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="word">大A A股 量化 国家 标普 纳指 ETF 美股</td>
+                    <td class="count">5</td>
+                    <td class="percentage">1.96%</td>
+                    <td class="titles">[华尔街见闻] <a href="https://wallstreetcn.com/articles/3751324" target="_blank" class="news-link">美国经济数据强劲，标普纳指收创新高，美元上涨，台积电ADR涨超3%</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 22时58分</font><br>[财联社热门] <a href="https://www.cls.cn/detail/2089824" target="_blank" class="news-link">A股规模最大吸收合并项目迎重大进展 证监会、上交所高效赋能注入“强心剂”</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 22时58分</font><br>[华尔街见闻] <a href="https://wallstreetcn.com/articles/3751377" target="_blank" class="news-link">“不孤独经济”崛起：当1/4的中国家庭只有一个人组成</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 22时58分</font><br>[财联社热门] <a href="https://www.cls.cn/detail/2089615" target="_blank" class="news-link">已追平A股纪录！“20cm股”再出8连板，历史大号高标扫描，这些特点或可关注</a> [7] <font color='grey'>- 22时58分</font><br>[澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31205041" target="_blank" class="news-link">观察｜印尼在东盟国家中获美国较低关税，交易式外交达成“不良先例”？</a> [16] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="word">chatgpt openai</td>
+                    <td class="count">3</td>
+                    <td class="percentage">1.18%</td>
+                    <td class="titles">[bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90OpenAI%E6%9C%80%E5%BC%BA%E6%99%BA%E8%83%BD%E4%BD%93" target="_blank" class="news-link">深度解析OpenAI最强智能体</a> [8] <font color='grey'>- 22时58分</font><br>[bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=OpenAI%E5%8F%91%E5%B8%83%E6%9C%80%E5%BC%BA%E6%99%BA%E8%83%BD%E4%BD%93" target="_blank" class="news-link">OpenAI发布最强智能体</a> [9] <font color='grey'>- 22时58分</font><br>[华尔街见闻] <a href="https://wallstreetcn.com/articles/3751362" target="_blank" class="news-link">OpenAI发布ChatGPT Agent：能主动思考、自选工具，智能体赛道大变天</a> [10] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="word">AI ai 人工智能</td>
+                    <td class="count">3</td>
+                    <td class="percentage">1.18%</td>
+                    <td class="titles">[华尔街见闻] <a href="https://wallstreetcn.com/articles/3751369" target="_blank" class="news-link">特朗普下周宣布“AI行动计划”：推动美国芯片和AI工具出口，加快数据中心审批</a> [6] <font color='grey'>- 22时58分</font><br>[澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31211137" target="_blank" class="news-link">浙江省委全会结束后，参会者齐上人工智能课</a> [9] <font color='grey'>- 22时58分</font><br><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=AI%E5%88%98%E8%83%BD%E7%BF%BB%E5%94%B1%E7%BE%8E%E7%BE%8E%E6%A1%91%E5%86%85" target="_blank" class="news-link">AI刘能翻唱美美桑内</a> [20] <font color='grey'>- 22时58分</font></div></td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="word">宇树 王兴兴</td>
+                    <td class="count">2</td>
+                    <td class="percentage">0.78%</td>
+                    <td class="titles">[财联社热门] <a href="https://www.cls.cn/detail/2089683" target="_blank" class="news-link">宇树科技开启上市辅导</a> <font color='red'><strong>[2]</strong></font> <font color='grey'>- 22时58分</font><br>[财联社热门] <a href="https://www.cls.cn/detail/2089845" target="_blank" class="news-link">宇树科技启动IPO辅导 最快或于今年10月提交上市申请文件</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="word">黄仁勋 英伟达 NVIDIA</td>
+                    <td class="count">2</td>
+                    <td class="percentage">0.78%</td>
+                    <td class="titles">[zhihu] <a href="https://www.zhihu.com/question/1928029623440110073" target="_blank" class="news-link">索尼 PS6 性能大幅提升，媲美 NVIDIA RTX 4090 显卡，这将对玩家体验带来哪些影响？</a> [11] <font color='grey'>- 22时58分</font><br>[tieba] <a href="https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28343557&amp;amp;topic_name=%E9%BB%84%E4%BB%81%E5%8B%8B%E5%BC%BA%E8%B0%83%E8%87%AA%E5%B7%B1%E6%98%AF%E4%B8%80%E5%90%8D%E4%B8%AD%E5%9B%BD%E4%BA%BA" target="_blank" class="news-link">黄仁勋强调自己是一名中国人</a> [21] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="word">以色列 阿富汗 石油 铜</td>
+                    <td class="count">2</td>
+                    <td class="percentage">0.78%</td>
+                    <td class="titles">[澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31204208" target="_blank" class="news-link">释新闻｜强势介入叙南部冲突，以色列为何要“保护德鲁兹人”？</a> [6] <font color='grey'>- 22时58分</font><br>[澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31210218" target="_blank" class="news-link">以色列多次空袭叙利亚，中东11国联合声明反对外国对叙干涉</a> [15] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="word">华为 任正非 鸿蒙 HarmonyOS</td>
+                    <td class="count">1</td>
+                    <td class="percentage">0.39%</td>
+                    <td class="titles">[百度热搜] <a href="https://www.baidu.com/s?wd=%E2%80%9C%E9%B8%BF%E8%92%99%E5%A4%A7%E9%85%92%E5%BA%97%E2%80%9D%E7%81%AB%E7%88%86%E5%87%BA%E5%9C%88" target="_blank" class="news-link">“鸿蒙大酒店”火爆出圈</a> [13] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="word">黑神话 冯骥</td>
+                    <td class="count">1</td>
+                    <td class="percentage">0.39%</td>
+                    <td class="titles">[bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=UP%E6%8A%8A%E9%BB%91%E7%A5%9E%E8%AF%9D%E9%BE%99%E5%AE%AB%E5%81%9A%E6%88%90%E4%BA%86" target="_blank" class="news-link">UP把黑神话龙宫做成了</a> [24] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>11</td>
+                    <td class="word">iphone ipad mac ios</td>
+                    <td class="count">1</td>
+                    <td class="percentage">0.39%</td>
+                    <td class="titles">[douyin] <a href="https://www.douyin.com/hot/2172099" target="_blank" class="news-link">iPhone 17全系爆料合集</a> [10] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>12</td>
+                    <td class="word">汽车 自动驾驶 l3</td>
+                    <td class="count">1</td>
+                    <td class="percentage">0.39%</td>
+                    <td class="titles">[财联社热门] <a href="https://www.cls.cn/detail/2089858" target="_blank" class="news-link">中央第四指导组围绕综合整治新能源汽车行业非理性竞争问题开展专题调研座谈</a> [8] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>13</td>
+                    <td class="word">机器人</td>
+                    <td class="count">1</td>
+                    <td class="percentage">0.39%</td>
+                    <td class="titles">[今日头条] <a href="https://www.toutiao.com/trending/7527557457854808106/" target="_blank" class="news-link">深圳机器人已经学会给自己换电池了</a> <font color='red'><strong>[2]</strong></font> <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+                <tr>
+                    <td>14</td>
+                    <td class="word">科技</td>
+                    <td class="count">1</td>
+                    <td class="percentage">0.39%</td>
+                    <td class="titles">[澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31210271" target="_blank" class="news-link">英国天团演唱会拍下“大瓜”：美国科技公司CEO搂抱女高管，二人疑似出轨</a> [12] <font color='grey'>- 22时58分</font></td>
+                </tr>
+            
+            </table>
+        
+            <div class="new-section">
+                <h3>🆕 本次新增热点新闻 (共 2 条)</h3>
+            <h4>bilibili 热搜 (1 条)</h4><ul><li><a href="https://search.bilibili.com/all?keyword=AI%E5%88%98%E8%83%BD%E7%BF%BB%E5%94%B1%E7%BE%8E%E7%BE%8E%E6%A1%91%E5%86%85" target="_blank" class="news-link">AI刘能翻唱美美桑内</a> [20]</li></ul><h4>zhihu (1 条)</h4><ul><li><a href="https://www.zhihu.com/question/1929637433248577177" target="_blank" class="news-link">市场监管总局约谈饿了么、美团、京东三家平台企业，要求外卖平台企业理性竞争，哪些信息值得关注？</a> [6]</li></ul></div>
+            <div class="etf-section">
+                <h3>💰 ETF加仓策略判断</h3>
+            
+                <div class="etf-item">
+                    <h4>标普500</h4>
+                    <p>📊 <strong>市场数据<strong><br>美股-0.03% | 国内标普500ETF(513500)溢价1.0% | 期货-0.13%<br><br>🟠 <strong>💡 可以考虑买入<strong> (评分: 60/100)<br>📋 <strong>标普500操作建议<strong><br>💰 <strong>仓位<strong>: 10.0% | <strong>紧急度<strong>: 观望<br>📊 <strong>操作<strong>: 可一次性买入<br>🎯 <strong>目标<strong>: 盈利15-20%分批减仓 | 亏损10%止损<br>⚠️ <strong>事件<strong>: 冲突</p>
+                </div>
+                
+                <div class="etf-item">
+                    <h4>纳斯达克</h4>
+                    <p>📊 <strong>市场数据<strong><br>美股+0.00% | 国内纳斯达克100ETF(159834)溢价0.8% | 期货-0.16%<br><br>🔵 <strong>⚠️ 建议观望<strong> (评分: 45/100)<br>💡 <strong>原因<strong>: 美股上涨0.00% | 存在重大事件<br><br>⚠️ <strong>事件<strong>: 冲突</p>
+                </div>
+                
+                <div class="etf-item">
+                    <h4>国内ETF建议</h4>
+                    <p>🇨🇳 <strong>国内市场操作建议<strong><br><br>🎯 <strong>推荐<strong>: 513500(标普500)、159834(纳斯达克100)<br>• <strong>优势<strong>: T+0交易，管理费0.6%<br>• <strong>操作<strong>: 美股下跌时关注溢价率<br><br>🏠 <strong>A股联动<strong>: 159919(沪深300)、159922(中证500)<br>• <strong>策略<strong>: 美股下跌关注A股联动机会<br><br>💰 <strong>定投加码<strong>: 支付宝/天天基金买入QDII基金<br>• <strong>费率<strong>: 申购0.15%(1折)，管理费1.5%<br>• <strong>操作<strong>: 下跌时加大定投</p>
+                </div>
+                </div>
+            <style>
+                .etf-section {
+                    background-color: #f8f9fa;
+                    border: 1px solid #dee2e6;
+                    border-radius: 5px;
+                    padding: 15px;
+                    margin-top: 20px;
+                }
+                .etf-section h3 {
+                    color: #495057;
+                    margin-top: 0;
+                }
+                .etf-item {
+                    background-color: white;
+                    border: 1px solid #e9ecef;
+                    border-radius: 3px;
+                    padding: 10px;
+                    margin: 10px 0;
+                }
+                .etf-item h4 {
+                    color: #007bff;
+                    margin: 0 0 8px 0;
+                }
+                .etf-item p {
+                    margin: 0;
+                    line-height: 1.5;
+                }
+            </style>
+        </body>
+        </html>
+        

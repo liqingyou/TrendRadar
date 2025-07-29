@@ -11,6 +11,7 @@ import os
 
 import requests
 import pytz
+from etf_strategy import ETFStrategyAnalyzer
 
 CONFIG = {
     "VERSION": "1.3.0",
@@ -20,8 +21,8 @@ CONFIG = {
     "REQUEST_INTERVAL": 1000,  # 请求间隔(毫秒)
     "REPORT_TYPE": "daily",  # 报告类型: "current"|"daily"|"both"
     "RANK_THRESHOLD": 5,  # 排名高亮阈值
-    "USE_PROXY": True,  # 是否启用代理
-    "DEFAULT_PROXY": "http://127.0.0.1:10086",
+    "USE_PROXY": False,  # 是否启用代理（GitHub Actions环境建议设为False）
+    "DEFAULT_PROXY": "http://127.0.0.1:10809",
     "ENABLE_CRAWLER": True,  # 是否启用爬取新闻功能，False时直接停止程序
     "ENABLE_NOTIFICATION": True,  # 是否启用通知功能，False时不发送手机通知
     "MESSAGE_BATCH_SIZE": 4000,  # 消息分批大小（字节）
@@ -98,8 +99,13 @@ class VersionChecker:
         """检查是否有新版本"""
         try:
             proxies = None
-            if proxy_url:
+            # 在GitHub Actions环境中强制禁用代理
+            is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+            if proxy_url and not is_github_actions:
                 proxies = {"http": proxy_url, "https": proxy_url}
+            elif is_github_actions:
+                # GitHub Actions环境强制设置不使用代理
+                proxies = {"http": None, "https": None}
 
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -165,8 +171,13 @@ class DataFetcher:
         url = f"https://newsnow.busiyi.world/api/s?id={id_value}&latest"
 
         proxies = None
-        if self.proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if self.proxy_url and not is_github_actions:
             proxies = {"http": self.proxy_url, "https": self.proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
@@ -1019,6 +1030,31 @@ class ReportGenerator:
         report_data = ReportGenerator._prepare_report_data(
             stats, failed_ids, new_titles, id_to_alias
         )
+        
+        # ETF策略分析
+        try:
+            print("📊 HTML报告中开始ETF策略分析...")
+            proxy_url = CONFIG["DEFAULT_PROXY"] if CONFIG["USE_PROXY"] else None
+            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
+            all_news_titles = []
+            
+            # 收集所有新闻标题用于重大事件检测
+            for stat in stats:
+                for title_data in stat.get("titles", []):
+                    all_news_titles.append(title_data.get("title", ""))
+            
+            # 收集新增新闻标题
+            if new_titles:
+                for titles_data in new_titles.values():
+                    if isinstance(titles_data, dict):
+                        all_news_titles.extend(titles_data.keys())
+            
+            etf_strategy_results = etf_analyzer.analyze_strategy(all_news_titles)
+            report_data["etf_strategy"] = etf_strategy_results
+            print("✅ HTML报告ETF策略分析完成")
+        except Exception as e:
+            print(f"⚠️ HTML报告ETF策略分析失败: {e}")
+            report_data["etf_strategy"] = {}
 
         # 渲染层
         html_content = ReportGenerator._render_html_content(
@@ -1342,7 +1378,58 @@ class ReportGenerator:
 
             html += "</div>"
 
+        # 渲染ETF策略分析结果
+        if report_data.get("etf_strategy"):
+            html += """
+            <div class="etf-section">
+                <h3>💰 ETF加仓策略判断</h3>
+            """
+            
+            for index_name, strategy_result in report_data["etf_strategy"].items():
+                escaped_index = ReportGenerator._html_escape(index_name)
+                # 处理策略结果中的markdown格式，转换为HTML
+                escaped_result = ReportGenerator._html_escape(strategy_result)
+                escaped_result = escaped_result.replace("**", "<strong>").replace("**", "</strong>")
+                escaped_result = escaped_result.replace("\n", "<br>")
+                
+                html += f"""
+                <div class="etf-item">
+                    <h4>{escaped_index}</h4>
+                    <p>{escaped_result}</p>
+                </div>
+                """
+            
+            html += "</div>"
+
         html += """
+            <style>
+                .etf-section {
+                    background-color: #f8f9fa;
+                    border: 1px solid #dee2e6;
+                    border-radius: 5px;
+                    padding: 15px;
+                    margin-top: 20px;
+                }
+                .etf-section h3 {
+                    color: #495057;
+                    margin-top: 0;
+                }
+                .etf-item {
+                    background-color: white;
+                    border: 1px solid #e9ecef;
+                    border-radius: 3px;
+                    padding: 10px;
+                    margin: 10px 0;
+                }
+                .etf-item h4 {
+                    color: #007bff;
+                    margin: 0 0 8px 0;
+                }
+                .etf-item p {
+                    margin: 0;
+                    line-height: 1.5;
+                }
+            </style>
         </body>
         </html>
         """
@@ -1537,6 +1624,16 @@ class ReportGenerator:
             for i, id_value in enumerate(report_data["failed_ids"], 1):
                 text_content += f"  • <font color='red'>{id_value}</font>\n"
 
+        # ETF策略分析结果
+        if report_data.get("etf_strategy"):
+            if text_content and "暂无匹配" not in text_content:
+                text_content += f"\n{CONFIG['FEISHU_MESSAGE_SEPARATOR']}\n\n"
+            
+            text_content += "💰 **ETF加仓策略判断**\n\n"
+            
+            for index_name, strategy_result in report_data["etf_strategy"].items():
+                text_content += f"**{index_name}：**\n{strategy_result}\n\n"
+
         # 添加时间戳
         now = TimeHelper.get_beijing_time()
         text_content += f"\n\n<font color='grey'>更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}</font>"
@@ -1635,6 +1732,16 @@ class ReportGenerator:
             text_content += "⚠️ **数据获取失败的平台：**\n\n"
             for i, id_value in enumerate(report_data["failed_ids"], 1):
                 text_content += f"  • **{id_value}**\n"
+
+        # ETF策略分析结果
+        if report_data.get("etf_strategy"):
+            if text_content and "暂无匹配" not in text_content:
+                text_content += f"\n---\n\n"
+            
+            text_content += "💰 **ETF加仓策略判断**\n\n"
+            
+            for index_name, strategy_result in report_data["etf_strategy"].items():
+                text_content += f"**{index_name}：**\n\n{strategy_result}\n\n"
 
         # 添加时间戳
         text_content += f"\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
@@ -1937,6 +2044,48 @@ class ReportGenerator:
 
                 current_batch += "\n"
 
+        # 处理ETF策略分析结果
+        if report_data.get("etf_strategy"):
+            etf_header = ""
+            if format_type == "wework":
+                etf_header = f"\n\n\n\n💰 **ETF加仓策略判断**\n\n"
+            elif format_type == "telegram":
+                etf_header = f"\n\n💰 ETF加仓策略判断\n\n"
+
+            test_content = current_batch + etf_header
+            if (
+                len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
+                >= max_bytes
+            ):
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + etf_header
+                current_batch_has_content = True
+            else:
+                current_batch = test_content
+                current_batch_has_content = True
+
+            # 逐个处理ETF策略分析结果
+            for index_name, strategy_result in report_data["etf_strategy"].items():
+                etf_content = ""
+                if format_type == "wework":
+                    etf_content = f"**{index_name}：**\n\n{strategy_result}\n\n"
+                elif format_type == "telegram":
+                    etf_content = f"{index_name}：\n\n{strategy_result}\n\n"
+
+                test_content = current_batch + etf_content
+                if (
+                    len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8"))
+                    >= max_bytes
+                ):
+                    if current_batch_has_content:
+                        batches.append(current_batch + base_footer)
+                    current_batch = base_header + etf_header + etf_content
+                    current_batch_has_content = True
+                else:
+                    current_batch = test_content
+                    current_batch_has_content = True
+
         # 处理失败平台
         if report_data["failed_ids"]:
             failed_header = ""
@@ -1996,6 +2145,31 @@ class ReportGenerator:
         report_data = ReportGenerator._prepare_report_data(
             stats, failed_ids, new_titles, id_to_alias
         )
+        
+        # ETF策略分析
+        try:
+            print("📊 开始ETF策略分析...")
+            proxy_url = CONFIG["DEFAULT_PROXY"] if CONFIG["USE_PROXY"] else None
+            etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
+            all_news_titles = []
+            
+            # 收集所有新闻标题用于重大事件检测
+            for stat in stats:
+                for title_data in stat.get("titles", []):
+                    all_news_titles.append(title_data.get("title", ""))
+            
+            # 收集新增新闻标题
+            if new_titles:
+                for titles_data in new_titles.values():
+                    if isinstance(titles_data, dict):
+                        all_news_titles.extend(titles_data.keys())
+            
+            etf_strategy_results = etf_analyzer.analyze_strategy(all_news_titles)
+            report_data["etf_strategy"] = etf_strategy_results
+            print("✅ ETF策略分析完成")
+        except Exception as e:
+            print(f"⚠️ ETF策略分析失败: {e}")
+            report_data["etf_strategy"] = {}
 
         # 获取环境变量中的webhook配置
         feishu_url = os.environ.get("FEISHU_WEBHOOK_URL", CONFIG["FEISHU_WEBHOOK_URL"])
@@ -2074,8 +2248,13 @@ class ReportGenerator:
         }
 
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         try:
             response = requests.post(
@@ -2094,6 +2273,226 @@ class ReportGenerator:
             return False
 
     @staticmethod
+    def _split_dingtalk_content(
+        report_data: Dict,
+        update_info: Optional[Dict] = None,
+        max_bytes: int = 18000,  # 钉钉限制20000字节，保留2000字节缓冲
+    ) -> List[str]:
+        """为钉钉分批处理消息内容"""
+        batches = []
+
+        # 基础信息构建
+        total_titles = sum(
+            len(stat["titles"]) for stat in report_data["stats"] if stat["count"] > 0
+        )
+        now = TimeHelper.get_beijing_time()
+
+        base_header = f"**总新闻数：** {total_titles}\n\n"
+        base_header += f"**时间：** {now.strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+        base_header += f"**类型：** 热点分析报告\n\n"
+        base_header += "---\n\n"
+
+        base_footer = f"\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
+        if update_info:
+            base_footer += f"\n> TrendRadar 发现新版本 **{update_info['remote_version']}**，当前 **{update_info['current_version']}**"
+
+        current_batch = base_header
+        current_batch_has_content = False
+
+        # 空内容处理
+        if (
+            not report_data["stats"]
+            and not report_data["new_titles"]
+            and not report_data["failed_ids"]
+            and not report_data.get("etf_strategy")
+        ):
+            simple_content = "📭 暂无匹配的热点词汇\n\n"
+            final_content = base_header + simple_content + base_footer
+            batches.append(final_content)
+            return batches
+
+        # 处理热点词汇统计
+        if report_data["stats"]:
+            stats_header = "📊 **热点词汇统计**\n\n"
+            total_count = len(report_data["stats"])
+
+            # 添加统计标题
+            test_content = current_batch + stats_header
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) < max_bytes:
+                current_batch = test_content
+                current_batch_has_content = True
+            else:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + stats_header
+                current_batch_has_content = True
+
+            # 处理每个词组
+            for i, stat in enumerate(report_data["stats"]):
+                word = stat["word"]
+                count = stat["count"]
+                sequence_display = f"[{i + 1}/{total_count}]"
+
+                # 构建词组标题
+                if count >= 10:
+                    word_header = f"🔥 {sequence_display} **{word}** : **{count}** 条\n\n"
+                elif count >= 5:
+                    word_header = f"📈 {sequence_display} **{word}** : **{count}** 条\n\n"
+                else:
+                    word_header = f"📌 {sequence_display} **{word}** : {count} 条\n\n"
+
+                # 构建第一条新闻（确保原子性）
+                first_news_line = ""
+                if stat["titles"]:
+                    first_title_data = stat["titles"][0]
+                    formatted_title = ReportGenerator._format_title_dingtalk(
+                        first_title_data, show_source=True
+                    )
+                    first_news_line = f"  1. {formatted_title}\n"
+                    if len(stat["titles"]) > 1:
+                        first_news_line += "\n"
+
+                # 原子性检查：词组标题+第一条新闻必须一起处理
+                word_with_first_news = word_header + first_news_line
+                test_content = current_batch + word_with_first_news
+
+                if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                    # 当前批次容纳不下，开启新批次
+                    if current_batch_has_content:
+                        batches.append(current_batch + base_footer)
+                    current_batch = base_header + stats_header + word_with_first_news
+                    current_batch_has_content = True
+                    start_index = 1
+                else:
+                    current_batch = test_content
+                    current_batch_has_content = True
+                    start_index = 1
+
+                # 处理剩余新闻条目
+                for j in range(start_index, len(stat["titles"])):
+                    title_data = stat["titles"][j]
+                    formatted_title = ReportGenerator._format_title_dingtalk(
+                        title_data, show_source=True
+                    )
+                    news_line = f"  {j + 1}. {formatted_title}\n"
+                    if j < len(stat["titles"]) - 1:
+                        news_line += "\n"
+
+                    test_content = current_batch + news_line
+                    if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                        if current_batch_has_content:
+                            batches.append(current_batch + base_footer)
+                        current_batch = base_header + stats_header + word_header + news_line
+                        current_batch_has_content = True
+                    else:
+                        current_batch = test_content
+
+                # 词组间分隔符
+                if i < len(report_data["stats"]) - 1:
+                    separator = f"\n---\n\n"
+                    test_content = current_batch + separator
+                    if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) < max_bytes:
+                        current_batch = test_content
+
+        # 处理新增新闻
+        if report_data["new_titles"]:
+            new_header = f"\n---\n\n🆕 **本次新增热点新闻** (共 {report_data['total_new_count']} 条)\n\n"
+            
+            # 检查是否能添加到当前批次
+            test_content = current_batch + new_header
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + new_header
+                current_batch_has_content = True
+            else:
+                current_batch = test_content
+                current_batch_has_content = True
+
+            # 处理新增新闻内容
+            for source_data in report_data["new_titles"]:
+                source_header = f"**{source_data['source_alias']}** ({len(source_data['titles'])} 条):\n\n"
+                
+                test_content = current_batch + source_header
+                if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                    if current_batch_has_content:
+                        batches.append(current_batch + base_footer)
+                    current_batch = base_header + new_header + source_header
+                    current_batch_has_content = True
+                else:
+                    current_batch = test_content
+
+                # 处理该来源的新闻标题
+                for j, title_data in enumerate(source_data["titles"], 1):
+                    title_data_copy = title_data.copy()
+                    title_data_copy["is_new"] = False
+                    formatted_title = ReportGenerator._format_title_dingtalk(
+                        title_data_copy, show_source=False
+                    )
+                    news_line = f"  {j}. {formatted_title}\n"
+
+                    test_content = current_batch + news_line
+                    if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                        if current_batch_has_content:
+                            batches.append(current_batch + base_footer)
+                        current_batch = base_header + new_header + source_header + news_line
+                        current_batch_has_content = True
+                    else:
+                        current_batch = test_content
+
+                current_batch += "\n"
+
+        # 处理失败平台
+        if report_data["failed_ids"]:
+            failed_header = f"\n---\n\n⚠️ **数据获取失败的平台：**\n\n"
+            failed_content = ""
+            for i, id_value in enumerate(report_data["failed_ids"], 1):
+                failed_content += f"  • **{id_value}**\n"
+
+            full_failed_section = failed_header + failed_content
+            test_content = current_batch + full_failed_section
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + full_failed_section
+                current_batch_has_content = True
+            else:
+                current_batch = test_content
+
+        # 处理ETF策略分析
+        if report_data.get("etf_strategy"):
+            etf_header = f"\n---\n\n💰 **ETF加仓策略判断**\n\n"
+            
+            test_content = current_batch + etf_header
+            if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                if current_batch_has_content:
+                    batches.append(current_batch + base_footer)
+                current_batch = base_header + etf_header
+                current_batch_has_content = True
+            else:
+                current_batch = test_content
+
+            for index_name, strategy_result in report_data["etf_strategy"].items():
+                etf_content = f"**{index_name}：**\n\n{strategy_result}\n\n"
+                
+                test_content = current_batch + etf_content
+                if len(test_content.encode("utf-8")) + len(base_footer.encode("utf-8")) >= max_bytes:
+                    if current_batch_has_content:
+                        batches.append(current_batch + base_footer)
+                    current_batch = base_header + etf_header + etf_content
+                    current_batch_has_content = True
+                else:
+                    current_batch = test_content
+
+        # 添加最后一个批次
+        if current_batch_has_content:
+            batches.append(current_batch + base_footer)
+        elif not batches:  # 如果没有任何批次，添加一个空批次
+            batches.append(base_header + "📭 暂无内容\n\n" + base_footer)
+
+        return batches
+
+    @staticmethod
     def _send_to_dingtalk(
         webhook_url: str,
         report_data: Dict,
@@ -2101,46 +2500,66 @@ class ReportGenerator:
         update_info: Optional[Dict] = None,
         proxy_url: Optional[str] = None,
     ) -> bool:
-        """发送到钉钉"""
+        """发送到钉钉（支持消息分割）"""
         headers = {"Content-Type": "application/json"}
 
-        text_content = ReportGenerator._render_dingtalk_content(
-            report_data, update_info
-        )
-
-        payload = {
-            "msgtype": "markdown",
-            "markdown": {
-                "title": f"TrendRadar 热点分析报告 - {report_type}",
-                "text": text_content,
-            },
-        }
+        # 获取分批内容
+        content_batches = ReportGenerator._split_dingtalk_content(report_data, update_info)
 
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
-        try:
-            response = requests.post(
-                webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
-            )
-            if response.status_code == 200:
-                result = response.json()
-                if result.get("errcode") == 0:
-                    print(f"钉钉通知发送成功 [{report_type}]")
-                    return True
-                else:
-                    print(
-                        f"钉钉通知发送失败 [{report_type}]，错误：{result.get('errmsg')}"
-                    )
-                    return False
-            else:
-                print(
-                    f"钉钉通知发送失败 [{report_type}]，状态码：{response.status_code}"
+        success_count = 0
+        total_batches = len(content_batches)
+
+        for i, text_content in enumerate(content_batches, 1):
+            batch_title = f"TrendRadar 热点分析报告 - {report_type}"
+            if total_batches > 1:
+                batch_title += f" (第{i}页/共{total_batches}页)"
+            
+            payload = {
+                "msgtype": "markdown",
+                "markdown": {
+                    "title": batch_title,
+                    "text": text_content,
+                },
+            }
+
+            try:
+                response = requests.post(
+                    webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
                 )
-                return False
-        except Exception as e:
-            print(f"钉钉通知发送出错 [{report_type}]：{e}")
+                if response.status_code == 200:
+                    result = response.json()
+                    if result.get("errcode") == 0:
+                        print(f"钉钉通知第{i}页发送成功 [{report_type}]")
+                        success_count += 1
+                    else:
+                        print(f"钉钉通知第{i}页发送失败 [{report_type}]，错误：{result.get('errmsg')}")
+                        # 检查是否是body大小错误
+                        if "body 大小不合法" in str(result.get('errmsg', '')):
+                            print(f"⚠️ 第{i}页内容大小: {len(text_content.encode('utf-8'))} 字节")
+                else:
+                    print(f"钉钉通知第{i}页发送失败 [{report_type}]，状态码：{response.status_code}")
+            except Exception as e:
+                print(f"钉钉通知第{i}页发送出错 [{report_type}]：{e}")
+
+            # 批次间延迟，避免发送过快
+            if i < total_batches:
+                time.sleep(CONFIG["BATCH_SEND_INTERVAL"])
+
+        # 如果至少有一半的批次发送成功，就认为整体成功
+        if success_count > 0:
+            print(f"钉钉通知发送完成 [{report_type}]：{success_count}/{total_batches} 页发送成功")
+            return True
+        else:
+            print(f"钉钉通知发送失败 [{report_type}]：所有批次均发送失败")
             return False
 
     @staticmethod
@@ -2154,8 +2573,13 @@ class ReportGenerator:
         """发送到企业微信（支持分批发送）"""
         headers = {"Content-Type": "application/json"}
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         # 获取分批内容
         batches = ReportGenerator._split_content_into_batches(
@@ -2228,8 +2652,13 @@ class ReportGenerator:
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
 
         proxies = None
-        if proxy_url:
+        # 在GitHub Actions环境中强制禁用代理
+        is_github_actions = os.environ.get("GITHUB_ACTIONS") == "true"
+        if proxy_url and not is_github_actions:
             proxies = {"http": proxy_url, "https": proxy_url}
+        elif is_github_actions:
+            # GitHub Actions环境强制设置不使用代理
+            proxies = {"http": None, "https": None}
 
         # 获取分批内容
         batches = ReportGenerator._split_content_into_batches(

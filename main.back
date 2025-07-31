@@ -2069,7 +2069,7 @@ class ReportGenerator:
             for index_name, strategy_result in report_data["etf_strategy"].items():
                 etf_content = ""
                 if format_type == "wework":
-                    etf_content = f"**{index_name}：**\n\n{strategy_result}\n\n"
+                    _content = f"**{index_name}：**\n\n{strategy_result}\n\n"
                 elif format_type == "telegram":
                     etf_content = f"{index_name}：\n\n{strategy_result}\n\n"
 

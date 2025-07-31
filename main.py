@@ -1728,7 +1728,7 @@ def render_dingtalk_content(
         for i, id_value in enumerate(report_data["failed_ids"], 1):
             text_content += f"  • **{id_value}**\n"
 
-    # 添加ETF策略分析
+    # 🎯 添加ETF策略分析（包含主题投资机会）
     try:
         # 提取新闻标题用于ETF分析
         news_titles = []

@@ -1,0 +1,95 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 25</p><p>生成时间: 2025-08-09 07:39:48</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">7</td>
+                <td class="percentage">28.0%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7536352649159904804/" target="_blank" class="news-link">普京与特朗普将于下周举行会晤</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 07时39分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E5%B0%86%E4%BA%8E15%E6%97%A5%E5%9C%A8%E9%98%BF%E6%8B%89%E6%96%AF%E5%8A%A0%E4%BC%9A%E8%A7%81%E6%99%AE%E4%BA%AC" target="_blank" class="news-link">特朗普将于15日在阿拉斯加会见普京</a> [6] <font color='grey'>- 07时39分</font></div><br><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3752892" target="_blank" class="news-link">特朗普称英特尔CEO存在利益冲突、施压辞职，英特尔：我们坚决支持&quot;美国优先&quot;</a> [9] <font color='grey'>- 07时39分</font></div><br><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3752921" target="_blank" class="news-link">美联储内部分歧严重，若鲍威尔要“转鸽”，那“杰克逊霍尔”是最佳时机</a> [10] <font color='grey'>- 07时39分</font></div><br><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E7%89%B9%E6%9C%97%E6%99%AE%E7%A7%B0%E5%B0%86%E4%B8%8E%E6%99%AE%E4%BA%AC%E4%BC%9A%E6%99%A4%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26lcate%3D5001%26filter_type%3Drealtimehot%26c_type%3D31%26cate%3D5001%26realpos%3D10%26q%3D%2523%25E7%2589%25B9%25E6%259C%2597%25E6%2599%25AE%25E7%25A7%25B0%25E5%25B0%2586%25E4%25B8%258E%25E6%2599%25AE%25E4%25BA%25AC%25E4%25BC%259A%25E6%2599%25A4%2523%26stream_entry_id%3D31%26band_rank%3D10%26pos%3D9%26flag%3D1%26dgr%3D0%26display_time%3D1754696299%26pre_seqid%3D1754696299382952523131" target="_blank" class="news-link">特朗普称将与普京会晤</a> [10] <font color='grey'>- 07时39分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9A%E7%BE%8E%E4%BF%84%E5%B7%B2%E9%9D%9E%E5%B8%B8%E6%8E%A5%E8%BF%91%E8%BE%BE%E6%88%90%E5%8D%8F%E8%AE%AE" target="_blank" class="news-link">特朗普：美俄已非常接近达成协议</a> [14] <font color='grey'>- 07时39分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E5%BE%81100%25%E5%85%B3%E7%A8%8E+%E8%8F%B2%E5%BE%8B%E5%AE%BE%E5%8F%AB%E8%8B%A6" target="_blank" class="news-link">特朗普征100%关税 菲律宾叫苦</a> [27] <font color='grey'>- 07时39分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">黄仁勋 英伟达 NVIDIA</td>
+                <td class="count">1</td>
+                <td class="percentage">4.0%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2110672" target="_blank" class="news-link">美股收盘：纳指、英伟达续收新高 苹果创五年来最强周表现</a> [11] <font color='grey'>- 07时39分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">大A A股 量化 国家 标普 纳指 ETF 美股</td>
+                <td class="count">1</td>
+                <td class="percentage">4.0%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3752938" target="_blank" class="news-link">地缘缓和预期提振风险偏好，纳指收创新高，苹果创2020年最佳周涨幅，原油黄金大震荡</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 07时39分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

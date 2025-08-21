@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 73</p><p>生成时间: 2025-08-21 10:51:34</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">2</td>
+                <td class="percentage">2.74%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7540824384034835978/" target="_blank" class="news-link">牛弹琴：特朗普对风车宣战</a> [26] <font color='grey'>- 10时51分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9A%E4%B9%8C%E4%B8%8D%E8%AF%A5%E6%8C%91%E6%88%98%E6%AF%94%E8%87%AA%E5%B7%B1%E5%A4%A710%E5%80%8D%E5%9B%BD%E5%AE%B6" target="_blank" class="news-link">特朗普：乌不该挑战比自己大10倍国家</a> [30] <font color='grey'>- 10时51分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">黑神话 冯骥</td>
+                <td class="count">1</td>
+                <td class="percentage">1.37%</td>
+                <td class="titles"><div class='new-title'>🆕 [贴吧] <a href="https://tieba.baidu.com/hottopic/browse/hottopic?topic_id=28344404&amp;amp;topic_name=%E5%86%AF%E9%AA%A5%E5%81%9A%E9%92%9F%E9%A6%97%E8%BF%98%E6%98%AF%E5%9B%A0%E4%B8%BA%E6%83%B3%E8%A6%81%E8%A2%88%E8%A3%9F" target="_blank" class="news-link">冯骥做钟馗还是因为想要袈裟</a> [6] <font color='grey'>- 10时51分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">谷歌 google gemini deepmind</td>
+                <td class="count">1</td>
+                <td class="percentage">1.37%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2121229" target="_blank" class="news-link">俄方有向印度出口液化天然气的潜力 谷歌发布Pixel 10系列手机 | 环球市场</a> [12] <font color='grey'>- 10时51分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">AI ai 人工智能</td>
+                <td class="count">1</td>
+                <td class="percentage">1.37%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3753723" target="_blank" class="news-link">百度Q2营收同比下降4%，核心净利润增35%，AI新业务收入首次超过100亿元 | 财报见闻</a> [9] <font color='grey'>- 10时51分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">药</td>
+                <td class="count">1</td>
+                <td class="percentage">1.37%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3753740" target="_blank" class="news-link">恒瑞医药上半年营收同比增长16%，净利润增近30%，创新药收入达75.7亿元 | 财报见闻</a> [10] <font color='grey'>- 10时51分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

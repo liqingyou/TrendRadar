@@ -1,0 +1,87 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 30</p><p>生成时间: 2025-08-15 22:43:24</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">2</td>
+                <td class="percentage">6.67%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E7%89%B9%E6%9C%97%E6%99%AE%E4%B8%8E%E6%99%AE%E4%BA%AC%E4%BC%9A%E6%99%A4%E5%89%8D%E5%86%8D%E5%8F%91%E5%A8%81%E8%83%81%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26cate%3D5001%26realpos%3D5%26stream_entry_id%3D31%26flag%3D1%26lcate%3D5001%26c_type%3D31%26filter_type%3Drealtimehot%26q%3D%2523%25E7%2589%25B9%25E6%259C%2597%25E6%2599%25AE%25E4%25B8%258E%25E6%2599%25AE%25E4%25BA%25AC%25E4%25BC%259A%25E6%2599%25A4%25E5%2589%258D%25E5%2586%258D%25E5%258F%2591%25E5%25A8%2581%25E8%2583%2581%2523%26dgr%3D0%26pos%3D5%26band_rank%3D5%26display_time%3D1755268014%26pre_seqid%3D17552680146310492913143" target="_blank" class="news-link">特朗普与普京会晤前再发威胁</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 22时43分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9A%E4%B9%8C%E5%B0%86%E8%87%AA%E8%A1%8C%E5%86%B3%E5%AE%9A%E6%98%AF%E5%90%A6%E4%BA%A4%E6%8D%A2%E9%A2%86%E5%9C%9F" target="_blank" class="news-link">特朗普：乌将自行决定是否交换领土</a> [20] <font color='grey'>- 22时43分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">大A A股 量化 国家 标普 纳指 ETF 美股</td>
+                <td class="count">1</td>
+                <td class="percentage">3.33%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7538772692632079918/" target="_blank" class="news-link">A股再冲3700点 新开户未现过热景象</a> [26] <font color='grey'>- 22时43分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

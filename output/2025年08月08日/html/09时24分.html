@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 94</p><p>生成时间: 2025-08-08 09:24:11</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">10</td>
+                <td class="percentage">10.64%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8ldXSOkRk45" target="_blank" class="news-link">特朗普就美俄元首会晤表态</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7535989647877393947/" target="_blank" class="news-link">特朗普：普京无需同意和泽连斯基会面</a> <font color='red'><strong>[2]</strong></font> <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8ldbXnq5IJC" target="_blank" class="news-link">特朗普提名斯蒂芬·米兰担任美联储理事</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8ldvw2fK4qS" target="_blank" class="news-link">特朗普：不会与印度进行更多谈判</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8ldz4iVTs3y" target="_blank" class="news-link">悬念升级！下一任美联储主席是他？</a> [7] <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2109540" target="_blank" class="news-link">降息稳了？特朗普提名“他”出任美联储临时理事，或能赶上9月议息会议！</a> [8] <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3752887" target="_blank" class="news-link">美联储理事沃勒被特朗普团队视作美联储主席的优先人选之一</a> [10] <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2109484" target="_blank" class="news-link">特朗普提名斯蒂芬·米兰担任美联储理事</a> [11] <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7535983334556438058/" target="_blank" class="news-link">特朗普为何要求英特尔CEO辞职</a> [18] <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7535983552706383398/" target="_blank" class="news-link">特朗普加码关税施压 美国遭三重挑战</a> [24] <font color='grey'>- 09时24分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">chatgpt openai</td>
+                <td class="count">3</td>
+                <td class="percentage">3.19%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=OpenAI%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83GPT5" target="_blank" class="news-link">OpenAI正式发布GPT5</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [抖音] <a href="https://www.douyin.com/hot/2196093" target="_blank" class="news-link">OpenAI正式发布GPT-5</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2109447" target="_blank" class="news-link">遭Meta“钞能力偷家”后 OpenAI被曝向千名员工撒钱留人</a> [13] <font color='grey'>- 09时24分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">药</td>
+                <td class="count">2</td>
+                <td class="percentage">2.13%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7535232311848337449/" target="_blank" class="news-link">首个渐冻症精准治疗药物在武汉注射</a> [12] <font color='grey'>- 09时24分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E9%A6%96%E4%B8%AA%E6%B8%90%E5%86%BB%E7%97%87%E7%B2%BE%E5%87%86%E6%B2%BB%E7%96%97%E8%8D%AF%E7%89%A9%E5%9C%A8%E6%AD%A6%E6%B1%89%E6%B3%A8%E5%B0%84" target="_blank" class="news-link">首个渐冻症精准治疗药物在武汉注射</a> [29] <font color='grey'>- 09时24分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">AI ai 人工智能</td>
+                <td class="count">1</td>
+                <td class="percentage">1.06%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=AI%E5%BC%80%E6%BA%90%E6%88%98%E4%BA%89%E7%9A%84%E4%B8%9C%E6%96%B9%E5%8A%9B%E9%87%8F" target="_blank" class="news-link">AI开源战争的东方力量</a> [20] <font color='grey'>- 09时24分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">芯片 半导体 光刻机</td>
+                <td class="count">1</td>
+                <td class="percentage">1.06%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3752874" target="_blank" class="news-link">100%半导体关税！对于市场，现在问题比答案多</a> [9] <font color='grey'>- 09时24分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

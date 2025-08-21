@@ -1728,43 +1728,43 @@ def render_dingtalk_content(
         for i, id_value in enumerate(report_data["failed_ids"], 1):
             text_content += f"  • **{id_value}**\n"
 
-    # 🎯 添加ETF策略分析（包含主题投资机会）
-    try:
-        # 提取新闻标题用于ETF分析
-        news_titles = []
-        for stat in report_data["stats"]:
-            for title_data in stat["titles"]:
-                news_titles.append(title_data["title"])
+    # # 🎯 添加ETF策略分析（包含主题投资机会）
+    # try:
+    #     # 提取新闻标题用于ETF分析
+    #     news_titles = []
+    #     for stat in report_data["stats"]:
+    #         for title_data in stat["titles"]:
+    #             news_titles.append(title_data["title"])
         
-        # 创建ETF策略分析器并分析
-        etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
-        etf_results = etf_analyzer.analyze_strategy(news_titles)
+    #     # 创建ETF策略分析器并分析
+    #     etf_analyzer = ETFStrategyAnalyzer(use_proxy=False)
+    #     etf_results = etf_analyzer.analyze_strategy(news_titles)
         
-        if etf_results and not any("错误" in key for key in etf_results.keys()):
-            text_content += f"\n---\n\n"
-            text_content += f"💰 **ETF投资策略分析**\n\n"
+    #     if etf_results and not any("错误" in key for key in etf_results.keys()):
+    #         text_content += f"\n---\n\n"
+    #         text_content += f"💰 **ETF投资策略分析**\n\n"
             
-            for index_name, strategy_result in etf_results.items():
-                text_content += f"**{index_name}：**\n\n"
+    #         for index_name, strategy_result in etf_results.items():
+    #             text_content += f"**{index_name}：**\n\n"
                 
-                # 格式化ETF分析结果为钉钉markdown
-                formatted_result = strategy_result.replace("**", "**").replace("*", "")
-                # 移除HTML标签
-                formatted_result = re.sub(r'<[^>]+>', '', formatted_result)
-                # 处理emoji和格式
-                formatted_result = formatted_result.replace("🟢", "🟢").replace("🟡", "🟡").replace("🟠", "🟠").replace("🔵", "🔵").replace("🔴", "🔴")
+    #             # 格式化ETF分析结果为钉钉markdown
+    #             formatted_result = strategy_result.replace("**", "**").replace("*", "")
+    #             # 移除HTML标签
+    #             formatted_result = re.sub(r'<[^>]+>', '', formatted_result)
+    #             # 处理emoji和格式
+    #             formatted_result = formatted_result.replace("🟢", "🟢").replace("🟡", "🟡").replace("🟠", "🟠").replace("🔵", "🔵").replace("🔴", "🔴")
                 
-                text_content += f"{formatted_result}\n\n"
+    #             text_content += f"{formatted_result}\n\n"
                 
-                if index_name != list(etf_results.keys())[-1]:
-                    text_content += "---\n\n"
+    #             if index_name != list(etf_results.keys())[-1]:
+    #                 text_content += "---\n\n"
         
-    except Exception as e:
-        print(f"ETF分析失败: {e}")
-        # 如果ETF分析失败，添加简单说明
-        text_content += f"\n---\n\n"
-        text_content += f"💰 **ETF投资策略分析**\n\n"
-        text_content += f"⚠️ ETF数据获取失败，请稍后再试\n\n"
+    # except Exception as e:
+    #     print(f"ETF分析失败: {e}")
+    #     # 如果ETF分析失败，添加简单说明
+    #     text_content += f"\n---\n\n"
+    #     text_content += f"💰 **ETF投资策略分析**\n\n"
+    #     text_content += f"⚠️ ETF数据获取失败，请稍后再试\n\n"
 
     text_content += f"\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
 

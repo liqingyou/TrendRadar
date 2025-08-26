@@ -1,0 +1,143 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 80</p><p>生成时间: 2025-08-25 10:57:59</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">大A A股 量化 国家 标普 纳指 ETF 美股</td>
+                <td class="count">3</td>
+                <td class="percentage">3.75%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3DA%E8%82%A1&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26flag%3D1%26lcate%3D5001%26realpos%3D14%26band_rank%3D14%26q%3DA%25E8%2582%25A1%26filter_type%3Drealtimehot%26c_type%3D31%26pos%3D15%26dgr%3D0%26stream_entry_id%3D31%26cate%3D5001%26display_time%3D1756090524%26pre_seqid%3D17560905246970577984115" target="_blank" class="news-link">A股</a> [14] <font color='grey'>- 10时57分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31466587" target="_blank" class="news-link">谭案说法｜两罪变一罪，多坐牢的日子能获得国家赔偿吗？</a> [16] <font color='grey'>- 10时57分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7541418885548261417/" target="_blank" class="news-link">印度外长：与美谈判须捍卫国家利益</a> [23] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">金融 证券 贷款 消费 央行</td>
+                <td class="count">2</td>
+                <td class="percentage">2.5%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2124105" target="_blank" class="news-link">中信证券：此轮行情并不是散户市</a> [12] <font color='grey'>- 10时57分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31467446" target="_blank" class="news-link">25日，央行将开展6000亿元中期借贷便利MLF操作</a> [20] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">京东 刘强东</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E4%BA%AC%E4%B8%9C%E9%80%81%E7%8E%AB%E7%91%B0%E5%B8%AE%E5%B0%8F%E4%BC%99%E8%A1%A8%E7%99%BD%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26flag%3D1%26lcate%3D5001%26realpos%3D20%26band_rank%3D20%26q%3D%2523%25E4%25BA%25AC%25E4%25B8%259C%25E9%2580%2581%25E7%258E%25AB%25E7%2591%25B0%25E5%25B8%25AE%25E5%25B0%258F%25E4%25BC%2599%25E8%25A1%25A8%25E7%2599%25BD%2523%26filter_type%3Drealtimehot%26c_type%3D31%26pos%3D21%26dgr%3D0%26stream_entry_id%3D31%26cate%3D5001%26display_time%3D1756090524%26pre_seqid%3D17560905246970577984115" target="_blank" class="news-link">京东送玫瑰帮小伙表白</a> [19] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">微软 Microsoft</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=Github%E5%B0%86%E5%B9%B6%E5%85%A5%E5%BE%AE%E8%BD%AFAI%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88" target="_blank" class="news-link">Github将并入微软AI意味着什么</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">黄仁勋 英伟达 NVIDIA</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8m6H9aUA5pV" target="_blank" class="news-link">“既然如此，英伟达应该向中国缴纳15%的安全保证金”</a> [11] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">芯片 半导体 光刻机</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2124284" target="_blank" class="news-link">8月25日投资避雷针：算力芯片人气股公告 六名股东拟询价转让5%公司股份</a> [11] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>7</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8m6LHNBDIfc" target="_blank" class="news-link">李在明：将与特朗普讨论安保、国防预算及关税等议题</a> [7] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>8</td>
+                <td class="word">科技</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31470133" target="_blank" class="news-link">大连科技学院通报工资停发：已全部解决，将按计划如期开学</a> [15] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>9</td>
+                <td class="word">药</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2124098" target="_blank" class="news-link">创新药打开支付新路径 药企还有哪些考量？|直击西普会</a> [8] <font color='grey'>- 10时57分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

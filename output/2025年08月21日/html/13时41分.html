@@ -1,0 +1,103 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 31</p><p>生成时间: 2025-08-21 13:41:29</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">2</td>
+                <td class="percentage">6.45%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8lztxi5QZ2I" target="_blank" class="news-link">“欧洲七怪”送泽连斯基赴美讨说法，特朗普承诺了啥？</a> <font color='red'><strong>[2]</strong></font> <font color='grey'>- 13时41分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9A%E7%BE%8E%E5%B0%86%E4%B8%8D%E5%86%8D%E6%89%B9%E5%87%86%E5%85%89%E4%BC%8F%E6%88%96%E9%A3%8E%E7%94%B5%E9%A1%B9%E7%9B%AE" target="_blank" class="news-link">特朗普：美将不再批准光伏或风电项目</a> [27] <font color='grey'>- 13时41分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">AI ai 人工智能</td>
+                <td class="count">1</td>
+                <td class="percentage">3.23%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2121424" target="_blank" class="news-link">AI领域大新闻！不光是重组团队 Meta被曝已暂停AI招聘</a> [9] <font color='grey'>- 13时41分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">大A A股 量化 国家 标普 纳指 ETF 美股</td>
+                <td class="count">1</td>
+                <td class="percentage">3.23%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7540845227978555446/" target="_blank" class="news-link">A股午评：沪指半日涨0.35%</a> [22] <font color='grey'>- 13时41分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">补贴</td>
+                <td class="count">1</td>
+                <td class="percentage">3.23%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E5%AE%98%E6%96%B9%E5%9B%9E%E5%BA%94%E9%9D%9E%E5%A9%9A%E7%94%9F%E5%AD%90%E8%83%BD%E5%90%A6%E9%A2%86%E5%8F%96%E8%82%B2%E5%84%BF%E8%A1%A5%E8%B4%B4%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26dgr%3D0%26stream_entry_id%3D31%26realpos%3D18%26filter_type%3Drealtimehot%26pos%3D19%26c_type%3D31%26q%3D%2523%25E5%25AE%2598%25E6%2596%25B9%25E5%259B%259E%25E5%25BA%2594%25E9%259D%259E%25E5%25A9%259A%25E7%2594%259F%25E5%25AD%2590%25E8%2583%25BD%25E5%2590%25A6%25E9%25A2%2586%25E5%258F%2596%25E8%2582%25B2%25E5%2584%25BF%25E8%25A1%25A5%25E8%25B4%25B4%2523%26flag%3D1%26cate%3D5001%26lcate%3D5001%26band_rank%3D18%26display_time%3D1755754113%26pre_seqid%3D1755754113420051129685" target="_blank" class="news-link">官方回应非婚生子能否领取育儿补贴</a> [18] <font color='grey'>- 13时41分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

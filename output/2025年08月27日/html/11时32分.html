@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 47</p><p>生成时间: 2025-08-27 11:32:48</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">iphone ipad mac ios</td>
+                <td class="count">2</td>
+                <td class="percentage">4.26%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3DiPhone17%E6%96%B0%E9%A2%9C%E8%89%B2&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26pos%3D9%26lcate%3D5001%26filter_type%3Drealtimehot%26band_rank%3D9%26q%3DiPhone17%25E6%2596%25B0%25E9%25A2%259C%25E8%2589%25B2%26dgr%3D0%26c_type%3D31%26cate%3D5001%26stream_entry_id%3D31%26flag%3D1%26realpos%3D9%26display_time%3D1756265557%26pre_seqid%3D1756265557338055863837" target="_blank" class="news-link">iPhone17新颜色</a> [9] <font color='grey'>- 11时32分</font></div><br><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23iPhone17ProMax%E6%89%8B%E6%9C%BA%E5%A3%B3%E6%9C%80%E6%96%B0%E6%9B%9D%E5%85%89%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26pos%3D24%26lcate%3D5001%26filter_type%3Drealtimehot%26band_rank%3D24%26q%3D%2523iPhone17ProMax%25E6%2589%258B%25E6%259C%25BA%25E5%25A3%25B3%25E6%259C%2580%25E6%2596%25B0%25E6%259B%259D%25E5%2585%2589%2523%26dgr%3D0%26c_type%3D31%26cate%3D5001%26stream_entry_id%3D31%26flag%3D1%26realpos%3D24%26display_time%3D1756265557%26pre_seqid%3D1756265557338055863837" target="_blank" class="news-link">iPhone17ProMax手机壳最新曝光</a> [24] <font color='grey'>- 11时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">华为 任正非 鸿蒙 HarmonyOS</td>
+                <td class="count">1</td>
+                <td class="percentage">2.13%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1943963262094939303" target="_blank" class="news-link">华为官宣 Mate XTs 非凡大师及全场景新品发布会定档 9 月 4 日，你有哪些期待？</a> [12] <font color='grey'>- 11时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">比亚迪 王传福 新能源</td>
+                <td class="count">1</td>
+                <td class="percentage">2.13%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1935285919298097634" target="_blank" class="news-link">比亚迪前七个月海外销量暴增 133%，但国内销量环比下降，这背后原因有哪些？</a> [10] <font color='grey'>- 11时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">1</td>
+                <td class="percentage">2.13%</td>
+                <td class="titles"><div class='new-title'>🆕 [抖音] <a href="https://www.douyin.com/hot/2216722" target="_blank" class="news-link">特朗普回应霉霉订婚</a> [27] <font color='grey'>- 11时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">美股 标普</td>
+                <td class="count">1</td>
+                <td class="percentage">2.13%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/premium/articles/3754109?layout=wscn-layout" target="_blank" class="news-link">对话付鹏：美股“爆金币”何时再现？加仓VIX波动率指数的时机到了吗？【付鹏说特别篇】</a> [10] <font color='grey'>- 11时32分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

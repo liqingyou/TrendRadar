@@ -1,0 +1,119 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 26</p><p>生成时间: 2025-09-11 07:35:46</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">4</td>
+                <td class="percentage">15.38%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7548539986480545831/" target="_blank" class="news-link">特朗普政治盟友遭枪击身亡</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8mYLiZw52Vk" target="_blank" class="news-link">政治盟友被枪杀，特朗普下令降半旗</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8mYKjmhDD44" target="_blank" class="news-link">韩外交部：特朗普要求被拘留韩公民留下，致其归国程序中断</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E6%94%BF%E6%B2%BB%E7%9B%9F%E5%8F%8B%E9%81%AD%E6%9E%AA%E5%87%BB%E8%BA%AB%E4%BA%A1+%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9A%E9%99%8D%E5%8D%8A%E6%97%97" target="_blank" class="news-link">政治盟友遭枪击身亡 特朗普：降半旗</a> [8] <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">马斯克 特斯拉</td>
+                <td class="count">1</td>
+                <td class="percentage">3.85%</td>
+                <td class="titles"><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31586536" target="_blank" class="news-link">几个月没去华盛顿，马斯克：美国政府已无药可救</a> [19] <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">chatgpt openai</td>
+                <td class="count">1</td>
+                <td class="percentage">3.85%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2141574" target="_blank" class="news-link">甲骨文“爆裂增长”幕后：OpenAI的5年合同据称价值3000亿美元</a> [11] <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">汽车 自动驾驶 l3</td>
+                <td class="count">1</td>
+                <td class="percentage">3.85%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2141612" target="_blank" class="news-link">【早报】外交部回应特朗普涉华言论；整治汽车行业网络乱象，六部门开展专项行动</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">大A A股 量化 国家 纳指 ETF</td>
+                <td class="count">1</td>
+                <td class="percentage">3.85%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3755317" target="_blank" class="news-link">PPI降温，标普、纳指再创新高，甲骨文暴涨35%，美债走强</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">空袭 战争</td>
+                <td class="count">1</td>
+                <td class="percentage">3.85%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7548548311167274532/" target="_blank" class="news-link">以空袭多哈是中东版“偷袭珍珠港”吗</a> [8] <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

@@ -1,0 +1,119 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 38</p><p>生成时间: 2025-09-12 16:44:03</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">2</td>
+                <td class="percentage">5.26%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3755451" target="_blank" class="news-link">隔夜，美国8月CPI为美联储降息“铺平道路”</a> [10] <font color='grey'>- 16时44分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2143034" target="_blank" class="news-link">调查：美联储9月降息已成定局，年底前至少还会再降息一次</a> [11] <font color='grey'>- 16时44分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">华为 任正非 鸿蒙 HarmonyOS</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E5%8D%8E%E4%B8%BA%E6%96%B0%E4%B8%89%E6%8A%98%E5%8F%A0%E5%BC%80%E5%94%AE%E7%8E%B0%E5%9C%BA%E4%BA%BA%E4%BB%8E%E4%BC%97%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26q%3D%2523%25E5%258D%258E%25E4%25B8%25BA%25E6%2596%25B0%25E4%25B8%2589%25E6%258A%2598%25E5%258F%25A0%25E5%25BC%2580%25E5%2594%25AE%25E7%258E%25B0%25E5%259C%25BA%25E4%25BA%25BA%25E4%25BB%258E%25E4%25BC%2597%2523%26dgr%3D0%26c_type%3D31%26band_rank%3D21%26pos%3D22%26cate%3D5001%26realpos%3D21%26flag%3D1%26stream_entry_id%3D31%26lcate%3D5001%26filter_type%3Drealtimehot%26display_time%3D1757666590%26pre_seqid%3D1757666590826023765946" target="_blank" class="news-link">华为新三折叠开售现场人从众</a> [21] <font color='grey'>- 16时44分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">iphone ipad mac ios</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3DiPhone14%E6%9C%BA%E4%B8%BB%E6%98%AF%E7%81%B5%E5%8A%A8%E5%B2%9B%E5%B2%9B%E4%B8%BB&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26q%3DiPhone14%25E6%259C%25BA%25E4%25B8%25BB%25E6%2598%25AF%25E7%2581%25B5%25E5%258A%25A8%25E5%25B2%259B%25E5%25B2%259B%25E4%25B8%25BB%26dgr%3D0%26c_type%3D31%26band_rank%3D18%26pos%3D19%26cate%3D5001%26realpos%3D18%26flag%3D1%26stream_entry_id%3D31%26lcate%3D5001%26filter_type%3Drealtimehot%26display_time%3D1757666590%26pre_seqid%3D1757666590826023765946" target="_blank" class="news-link">iPhone14机主是灵动岛岛主</a> [18] <font color='grey'>- 16时44分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">AI ai 人工智能</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2143031" target="_blank" class="news-link">科技股再掀热潮，AI 算力硬件持续活跃，固态电池或成潜在 “接棒者”</a> [12] <font color='grey'>- 16时44分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">大A A股 量化 国家 纳指 ETF</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8macma1wOoL" target="_blank" class="news-link">以色列72小时内袭击6个国家，中方回应</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 16时44分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">港股</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E6%B8%AF%E8%82%A1%E6%94%B6%E7%9B%98%EF%BC%9A%E7%99%BE%E5%BA%A6%E6%B6%A8%E8%B6%858%25" target="_blank" class="news-link">港股收盘：百度涨超8%</a> [8] <font color='grey'>- 16时44分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

@@ -1,0 +1,127 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 64</p><p>生成时间: 2025-09-13 10:32:03</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">马斯克 特斯拉</td>
+                <td class="count">2</td>
+                <td class="percentage">3.12%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3755472" target="_blank" class="news-link">美股涨跌不一，特斯拉两日大涨14%，美债美元齐跌，加密货币普涨</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 10时32分</font></div><br><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3755510" target="_blank" class="news-link">两天涨近14%！特斯拉股价大爆发，发生了什么？</a> [8] <font color='grey'>- 10时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">iphone ipad mac ios</td>
+                <td class="count">2</td>
+                <td class="percentage">3.12%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=iPhone+17%E8%A2%AB%E5%90%90%E6%A7%BD%E4%B8%91%E4%B8%BA%E4%BD%95%E4%BB%8D%E7%96%AF%E6%8A%A2" target="_blank" class="news-link">iPhone 17被吐槽丑为何仍疯抢</a> [12] <font color='grey'>- 10时32分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31601990" target="_blank" class="news-link">iPhone 17系列预购：不足20分钟Pro Max全系首发日无货，橙色抢手</a> [17] <font color='grey'>- 10时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">2</td>
+                <td class="percentage">3.12%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7549226187734761523/" target="_blank" class="news-link">特朗普：希望枪杀柯克凶手被判死刑</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 10时32分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E6%94%BF%E5%BA%9C%E6%92%A4%E9%94%80%E6%95%B0%E5%8D%81%E4%B8%87%E7%A7%BB%E6%B0%91%E8%BA%AB%E4%BB%BD%E6%9C%89%E6%95%88" target="_blank" class="news-link">特朗普政府撤销数十万移民身份有效</a> [26] <font color='grey'>- 10时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">大A A股 量化 国家 纳指 ETF</td>
+                <td class="count">2</td>
+                <td class="percentage">3.12%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2144193" target="_blank" class="news-link">全球出货量剑指1500万！智能眼镜将成新一代服务入口 硬件轻量化待突破</a> [8] <font color='grey'>- 10时32分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31600402" target="_blank" class="news-link">国家有关部门正研究海南岛内居民免税消费进境商品政策</a> [20] <font color='grey'>- 10时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">汽车 自动驾驶 l3</td>
+                <td class="count">1</td>
+                <td class="percentage">1.56%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%A5%9E%E7%A7%98%E9%87%91%E4%B8%BB%E5%87%BA%E6%89%8B+%E5%A8%81%E9%A9%AC%E6%B1%BD%E8%BD%A6%E2%80%9C%E5%A4%8D%E6%B4%BB%E2%80%9D" target="_blank" class="news-link">神秘金主出手 威马汽车“复活”</a> [9] <font color='grey'>- 10时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">金融 证券 贷款 消费 央行</td>
+                <td class="count">1</td>
+                <td class="percentage">1.56%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E5%AD%98%E6%AC%BE%E5%8E%BB%E5%93%AA%E4%BA%86%EF%BC%9F%E5%A4%AE%E8%A1%8C%E6%95%B0%E6%8D%AE%E6%8F%AD%E7%A7%98" target="_blank" class="news-link">存款去哪了？央行数据揭秘</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 10时32分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>7</td>
+                <td class="word">游戏</td>
+                <td class="count">1</td>
+                <td class="percentage">1.56%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2143718" target="_blank" class="news-link">大涨后游戏股座次洗牌：有人凭千亿市值登顶 有人掉出前三强</a> [7] <font color='grey'>- 10时32分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

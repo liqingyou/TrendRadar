@@ -1,0 +1,135 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 38</p><p>生成时间: 2025-09-15 16:21:00</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">5</td>
+                <td class="percentage">13.16%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8mfbI9HZ7cO" target="_blank" class="news-link">中方已邀请特朗普今年访华？外交部：没有可以提供的信息</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 16时21分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8mfUUOLuviY" target="_blank" class="news-link">巴西总统卢拉在《纽约时报》发文，喊话特朗普：主权问题免谈</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 16时21分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7550217870349942803/" target="_blank" class="news-link">外交部回应“邀请特朗普访华”</a> [6] <font color='grey'>- 16时21分</font></div><br><div class='new-title'>🆕 [抖音] <a href="https://www.douyin.com/hot/2237827" target="_blank" class="news-link">外交部回应“邀请特朗普访华”</a> [7] <font color='grey'>- 16时21分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E4%B8%AD%E6%96%B9%E5%9B%9E%E5%BA%94%E2%80%9C%E5%B7%B2%E9%82%80%E8%AF%B7%E7%89%B9%E6%9C%97%E6%99%AE%E4%BB%8A%E5%B9%B4%E8%AE%BF%E5%8D%8E%E2%80%9D" target="_blank" class="news-link">中方回应“已邀请特朗普今年访华”</a> [10] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">黄仁勋 英伟达 NVIDIA</td>
+                <td class="count">2</td>
+                <td class="percentage">5.26%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7549497894400098358/" target="_blank" class="news-link">官方进一步调查英伟达违反反垄断法</a> <font color='red'><strong>[2]</strong></font> <font color='grey'>- 16时21分</font></div><br><div class='new-title'>🆕 [抖音] <a href="https://www.douyin.com/hot/2237846" target="_blank" class="news-link">官方：进一步调查英伟达违反反垄断法</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">比亚迪 王传福 新能源</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2145123" target="_blank" class="news-link">上汽、比亚迪、小米等车企迅速响应：积极落实账款支付倡议</a> [13] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">iphone ipad mac ios</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2144922" target="_blank" class="news-link">小米17系列本月发布，雷军：全面对标iPhone，正面迎战</a> [12] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">汽车 自动驾驶 l3</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8mfRZUKJbBx" target="_blank" class="news-link">英国要求中企加强汽车防盗：跟中国不同，这儿汽车盗窃太多了</a> [9] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">大A A股 量化 国家 纳指 ETF</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7549810423152001066/" target="_blank" class="news-link">69岁爷爷教出3名国家级健将</a> [24] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>7</td>
+                <td class="word">空袭 战争</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7550194935664741929/" target="_blank" class="news-link">以空袭卡塔尔后中东多国陷入焦虑</a> [23] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>8</td>
+                <td class="word">药</td>
+                <td class="count">1</td>
+                <td class="percentage">2.63%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7549909926320291894/" target="_blank" class="news-link">红霉素是万能皮肤药？医生辟谣</a> [11] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

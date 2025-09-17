@@ -1,0 +1,87 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 26</p><p>生成时间: 2025-09-18 07:35:38</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">6</td>
+                <td class="percentage">23.08%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E9%9D%B4%E5%AD%90%E8%90%BD%E5%9C%B0+%E7%BE%8E%E8%81%94%E5%82%A8%E9%99%8D%E6%81%AF25%E4%B8%AA%E5%9F%BA%E7%82%B9" target="_blank" class="news-link">靴子落地 美联储降息25个基点</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7551187351632875017/" target="_blank" class="news-link">美联储宣布降息25个基点</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%E7%BE%8E%E8%81%94%E5%82%A8%E9%99%8D%E6%81%AF&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26band_rank%3D7%26stream_entry_id%3D31%26pos%3D6%26realpos%3D7%26flag%3D1%26lcate%3D5001%26c_type%3D31%26filter_type%3Drealtimehot%26cate%3D5001%26q%3D%25E7%25BE%258E%25E8%2581%2594%25E5%2582%25A8%25E9%2599%258D%25E6%2581%25AF%26dgr%3D0%26display_time%3D1758151607%26pre_seqid%3D17581516077570139042826" target="_blank" class="news-link">美联储降息</a> [7] <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2148403" target="_blank" class="news-link">【早报】特朗普再次延长TikTok禁令执行，外交部回应；工信部发文，事关辅助驾驶</a> [8] <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E7%BE%8E%E8%81%94%E5%82%A89%E4%B8%AA%E6%9C%88%E6%9D%A5%E9%A6%96%E6%AC%A1%E9%99%8D%E6%81%AF%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26band_rank%3D10%26stream_entry_id%3D31%26pos%3D9%26realpos%3D10%26flag%3D1%26lcate%3D5001%26c_type%3D31%26filter_type%3Drealtimehot%26cate%3D5001%26q%3D%2523%25E7%25BE%258E%25E8%2581%2594%25E5%2582%25A89%25E4%25B8%25AA%25E6%259C%2588%25E6%259D%25A5%25E9%25A6%2596%25E6%25AC%25A1%25E9%2599%258D%25E6%2581%25AF%2523%26dgr%3D0%26display_time%3D1758151607%26pre_seqid%3D17581516077570139042826" target="_blank" class="news-link">美联储9个月来首次降息</a> [10] <font color='grey'>- 07时35分</font></div><br><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E7%BE%8E%E8%81%94%E5%82%A8%E5%B9%B4%E5%86%85%E9%A2%84%E8%AE%A1%E5%86%8D%E9%99%8D%E6%81%AF2%E6%AC%A1%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26band_rank%3D23%26stream_entry_id%3D31%26pos%3D22%26realpos%3D23%26flag%3D1%26lcate%3D5001%26c_type%3D31%26filter_type%3Drealtimehot%26cate%3D5001%26q%3D%2523%25E7%25BE%258E%25E8%2581%2594%25E5%2582%25A8%25E5%25B9%25B4%25E5%2586%2585%25E9%25A2%2584%25E8%25AE%25A1%25E5%2586%258D%25E9%2599%258D%25E6%2581%25AF2%25E6%25AC%25A1%2523%26dgr%3D0%26display_time%3D1758151607%26pre_seqid%3D17581516077570139042826" target="_blank" class="news-link">美联储年内预计再降息2次</a> [23] <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">黑神话 冯骥</td>
+                <td class="count">1</td>
+                <td class="percentage">3.85%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E5%86%AF%E9%AA%A5%E8%8E%B7%E6%B5%99%E6%B1%9F%E7%9C%81%E6%94%BF%E5%BA%9C%E8%A1%A8%E5%BD%B0" target="_blank" class="news-link">冯骥获浙江省政府表彰</a> [26] <font color='grey'>- 07时35分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

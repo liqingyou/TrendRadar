@@ -1,0 +1,103 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 44</p><p>生成时间: 2025-09-22 16:21:56</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">2</td>
+                <td class="percentage">4.55%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2151789" target="_blank" class="news-link">重拾“降息锤”的美联储 仍砸不动7.7万亿美元的“现金墙”</a> [8] <font color='grey'>- 16时21分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%9B%E5%BC%B9%E7%90%B4%EF%BC%9A%E7%89%B9%E6%9C%97%E6%99%AE%E6%81%BC%E7%BE%9E%E6%88%90%E6%80%92+%E4%BD%86%E8%B7%9F%E4%B8%AD%E5%9B%BD%E6%97%A0%E5%85%B3" target="_blank" class="news-link">牛弹琴：特朗普恼羞成怒 但跟中国无关</a> [28] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">金融 证券 贷款 消费 央行</td>
+                <td class="count">2</td>
+                <td class="percentage">4.55%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2151864" target="_blank" class="news-link">事关十四五时期金融业发展情况，潘功胜、李云泽、吴清最新发声</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 16时21分</font></div><br><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3756026" target="_blank" class="news-link">潘功胜：今日发布会不涉及短期政策调整，下一步金融改革内容将在中央统一部署后做进一步沟通</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">比亚迪 王传福 新能源</td>
+                <td class="count">1</td>
+                <td class="percentage">2.27%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=%E5%B7%B4%E8%8F%B2%E7%89%B9%E4%B8%BA%E4%BD%95%E6%B8%85%E4%BB%93%E6%AF%94%E4%BA%9A%E8%BF%AA" target="_blank" class="news-link">巴菲特为何清仓比亚迪</a> [17] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">iphone ipad mac ios</td>
+                <td class="count">1</td>
+                <td class="percentage">2.27%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%E5%BB%BA%E8%AE%AE%E6%89%80%E6%9C%89%E5%A6%88%E5%A6%88%E5%8E%BB%E8%B4%AD%E4%B9%B0iphone17&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26stream_entry_id%3D31%26realpos%3D18%26q%3D%25E5%25BB%25BA%25E8%25AE%25AE%25E6%2589%2580%25E6%259C%2589%25E5%25A6%2588%25E5%25A6%2588%25E5%258E%25BB%25E8%25B4%25AD%25E4%25B9%25B0iphone17%26filter_type%3Drealtimehot%26flag%3D1%26c_type%3D31%26lcate%3D5001%26pos%3D18%26cate%3D5001%26dgr%3D0%26band_rank%3D18%26display_time%3D1758529213%26pre_seqid%3D17585292137440304476668" target="_blank" class="news-link">建议所有妈妈去购买iphone17</a> [18] <font color='grey'>- 16时21分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

@@ -1,0 +1,119 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 80</p><p>生成时间: 2025-09-25 10:45:45</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">3</td>
+                <td class="percentage">3.75%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7553820551286885907/" target="_blank" class="news-link">特朗普联大演讲为啥一顿“输出”</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 10时45分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31625598" target="_blank" class="news-link">特朗普说中国不使用风力发电？去年风电新增装机已是火电的1.5倍</a> [20] <font color='grey'>- 10时45分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E4%BF%84%E4%B9%8C%E7%AB%8B%E5%9C%BA%E5%87%BA%E7%8E%B0%E5%A4%A7%E5%8F%8D%E8%BD%AC" target="_blank" class="news-link">特朗普俄乌立场出现大反转</a> [28] <font color='grey'>- 10时45分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">AI ai 人工智能</td>
+                <td class="count">2</td>
+                <td class="percentage">2.5%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3756164" target="_blank" class="news-link">阿里抛出了个更宏大的AI故事</a> [7] <font color='grey'>- 10时45分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2155280" target="_blank" class="news-link">科技巨头对AI有多狂热？扎克伯格：宁愿浪费几千亿，也不愿错过！</a> [8] <font color='grey'>- 10时45分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">米哈游</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=%E7%B1%B3%E5%93%88%E6%B8%B8%E6%96%B0%E6%B8%B8%20%E6%98%9F%E5%B8%83%E8%B0%B7%E5%9C%B0PV%E9%A6%96%E6%9B%9D" target="_blank" class="news-link">米哈游新游 星布谷地PV首曝</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 10时45分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">汽车 自动驾驶 l3</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2155173" target="_blank" class="news-link">美国下调欧盟汽车关税至15% 并追溯自8月1日生效</a> [12] <font color='grey'>- 10时45分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">芯片 半导体 光刻机</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2155329" target="_blank" class="news-link">半导体设备ETF涨出先锋味道，为何能一骑绝尘？</a> [10] <font color='grey'>- 10时45分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">大A A股 量化 国家 纳指 ETF</td>
+                <td class="count">1</td>
+                <td class="percentage">1.25%</td>
+                <td class="titles"><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31673315" target="_blank" class="news-link">承认“国家”还是“政府”？西方多国承认巴勒斯坦背后的“两国方案”共识危机</a> [15] <font color='grey'>- 10时45分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

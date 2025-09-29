@@ -1,0 +1,127 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 60</p><p>生成时间: 2025-09-29 21:26:34</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">DeepSeek 梁文锋</td>
+                <td class="count">2</td>
+                <td class="percentage">3.33%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3756474" target="_blank" class="news-link">DeepSeek自研大模型V3.2亮相！华为、寒武纪芯片同步适配开源，API成本将降低50%以上</a> <font color='red'><strong>[2]</strong></font> <font color='grey'>- 21时26分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2159813" target="_blank" class="news-link">DeepSeek-V3.2-Exp官宣发布，API价格下调超50%</a> [8] <font color='grey'>- 21时26分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">2</td>
+                <td class="percentage">3.33%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7555450907043827254/" target="_blank" class="news-link">特朗普会在一周内对委内瑞拉动武吗</a> [14] <font color='grey'>- 21时26分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E5%B7%B2%E6%8E%88%E6%9D%83%E4%B9%8C%E5%AF%B9%E4%BF%84%E5%8F%91%E5%8A%A8%E7%BA%B5%E6%B7%B1%E6%94%BB%E5%87%BB" target="_blank" class="news-link">特朗普已授权乌对俄发动纵深攻击</a> [28] <font color='grey'>- 21时26分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">米哈游</td>
+                <td class="count">1</td>
+                <td class="percentage">1.67%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1955954569839378436" target="_blank" class="news-link">如何评价 2025 年 9 月米哈游《绝区零》2.3 版本前瞻直播【可曾记得梦】？</a> [8] <font color='grey'>- 21时26分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">马斯克 特斯拉</td>
+                <td class="count">1</td>
+                <td class="percentage">1.67%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1955206859343491194" target="_blank" class="news-link">又一批爱泼斯坦相关文件公布，马斯克出现其中，这会对他产生影响吗？</a> [14] <font color='grey'>- 21时26分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">芯片 半导体 光刻机</td>
+                <td class="count">1</td>
+                <td class="percentage">1.67%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2159590" target="_blank" class="news-link">【焦点复盘】券商、半导体午后携手做多，深成指反包中阳再创2年多新高，锂电产业链持续站上风口</a> [12] <font color='grey'>- 21时26分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">美股 标普</td>
+                <td class="count">1</td>
+                <td class="percentage">1.67%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3756460" target="_blank" class="news-link">美政府关门倒计时，美股三大期指全线上涨，贵金属集体走强，现货黄金突破3800美元，原油回落</a> [9] <font color='grey'>- 21时26分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>7</td>
+                <td class="word">科技</td>
+                <td class="count">1</td>
+                <td class="percentage">1.67%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E6%9E%81%E6%B0%AA9X%E5%BC%95%E9%A2%86%E6%96%B0%E4%B8%80%E4%BB%A3%E7%A7%91%E6%8A%80%E8%B1%AA%E5%8D%8E%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26realpos%3D20%26q%3D%2523%25E6%259E%2581%25E6%25B0%25AA9X%25E5%25BC%2595%25E9%25A2%2586%25E6%2596%25B0%25E4%25B8%2580%25E4%25BB%25A3%25E7%25A7%2591%25E6%258A%2580%25E8%25B1%25AA%25E5%258D%258E%2523%26stream_entry_id%3D31%26flag%3D1%26filter_type%3Drealtimehot%26pos%3D21%26band_rank%3D20%26c_type%3D31%26lcate%3D5001%26dgr%3D0%26cate%3D5001%26display_time%3D1759152277%26pre_seqid%3D17591522779159235178788" target="_blank" class="news-link">极氪9X引领新一代科技豪华</a> [20] <font color='grey'>- 21时26分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

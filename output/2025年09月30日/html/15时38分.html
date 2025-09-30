@@ -1,0 +1,95 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 23</p><p>生成时间: 2025-09-30 15:38:20</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">3</td>
+                <td class="percentage">13.04%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E7%89%B9%E6%9C%97%E6%99%AE%E8%AF%B4%E6%89%BF%E8%AE%A4%E5%B7%B4%E5%8B%92%E6%96%AF%E5%9D%A6%E5%9B%BD%E6%98%AF%E6%84%9A%E8%A0%A2%E8%A1%8C%E4%B8%BA%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26filter_type%3Drealtimehot%26c_type%3D31%26band_rank%3D6%26lcate%3D5001%26pos%3D5%26realpos%3D6%26flag%3D0%26stream_entry_id%3D31%26dgr%3D0%26cate%3D5001%26q%3D%2523%25E7%2589%25B9%25E6%259C%2597%25E6%2599%25AE%25E8%25AF%25B4%25E6%2589%25BF%25E8%25AE%25A4%25E5%25B7%25B4%25E5%258B%2592%25E6%2596%25AF%25E5%259D%25A6%25E5%259B%25BD%25E6%2598%25AF%25E6%2584%259A%25E8%25A0%25A2%25E8%25A1%258C%25E4%25B8%25BA%2523%26display_time%3D1759217819%26pre_seqid%3D175921781929702368740111" target="_blank" class="news-link">特朗普说承认巴勒斯坦国是愚蠢行为</a> [6] <font color='grey'>- 15时38分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2160432" target="_blank" class="news-link">图解9月大事件：美联储降息25个基点 金价迭创历史新高</a> [7] <font color='grey'>- 15时38分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7554849987079880730/" target="_blank" class="news-link">美国人认为特朗普带领国家走错方向</a> [26] <font color='grey'>- 15时38分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">AI ai 人工智能</td>
+                <td class="count">1</td>
+                <td class="percentage">4.35%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%94%A8ai%E8%AF%BB%E6%87%82%E4%BA%86%E6%96%87%E7%89%A9%E7%BB%86%E8%8A%82%E9%87%8C%E7%9A%84%E6%8A%97%E6%88%98%E8%AE%B0%E5%BF%86" target="_blank" class="news-link">用ai读懂了文物细节里的抗战记忆</a> [30] <font color='grey'>- 15时38分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">房地产</td>
+                <td class="count">1</td>
+                <td class="percentage">4.35%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2160457" target="_blank" class="news-link">北京房地产中介协会：倡议不唱衰做空市场、禁止虚假带看及引诱业主低价挂牌等</a> [12] <font color='grey'>- 15时38分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

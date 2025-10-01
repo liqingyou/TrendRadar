@@ -1,0 +1,103 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 73</p><p>生成时间: 2025-10-01 09:18:24</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">4</td>
+                <td class="percentage">5.48%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3756565" target="_blank" class="news-link">“最后时刻”近在眼前！特朗普警告：确实可能政府关门，那将有“不可逆转的”裁减</a> [9] <font color='grey'>- 09时18分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E9%87%8D%E6%8F%90%E2%80%9C%E8%AE%A9%E5%8A%A0%E6%8B%BF%E5%A4%A7%E6%88%90%E4%B8%BA%E7%AC%AC51%E5%B7%9E%E2%80%9D" target="_blank" class="news-link">特朗普重提“让加拿大成为第51州”</a> [16] <font color='grey'>- 09时18分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E7%A7%B0%E5%B0%86%E5%8A%A8%E7%94%A8%E5%86%9B%E9%98%9F%E6%95%B4%E9%A1%BF%E7%BA%BD%E7%BA%A6%E7%AD%89%E5%9C%B0" target="_blank" class="news-link">特朗普称将动用军队整顿纽约等地</a> [18] <font color='grey'>- 09时18分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7556024429801639470/" target="_blank" class="news-link">评论员：特朗普“20点计划”透着杀气</a> [28] <font color='grey'>- 09时18分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">黄仁勋 英伟达 NVIDIA</td>
+                <td class="count">1</td>
+                <td class="percentage">1.37%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2161248" target="_blank" class="news-link">美股收盘：三大指数集体上涨 道指、英伟达双双收新高</a> [9] <font color='grey'>- 09时18分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">chatgpt openai</td>
+                <td class="count">1</td>
+                <td class="percentage">1.37%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3756513" target="_blank" class="news-link">到2033年建成250GW数据中心！OpenAI的“野心”现实吗？</a> [10] <font color='grey'>- 09时18分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">药</td>
+                <td class="count">1</td>
+                <td class="percentage">1.37%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E6%96%B0%E7%89%88%E4%B8%AD%E5%9B%BD%E8%8D%AF%E5%85%B8%E4%BB%8A%E8%B5%B7%E5%AE%9E%E6%96%BD" target="_blank" class="news-link">新版中国药典今起实施</a> [30] <font color='grey'>- 09时18分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

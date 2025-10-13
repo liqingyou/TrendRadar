@@ -1,0 +1,127 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 48</p><p>生成时间: 2025-10-13 16:22:51</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">汽车 自动驾驶 l3</td>
+                <td class="count">2</td>
+                <td class="percentage">4.17%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E8%AD%A6%E6%96%B9%E9%80%9A%E6%8A%A5%E6%88%90%E9%83%BD%E6%B1%BD%E8%BD%A6%E7%A2%B0%E6%92%9E%E8%B5%B7%E7%81%AB%E5%8F%B8%E6%9C%BA%E6%AD%BB%E4%BA%A1" target="_blank" class="news-link">警方通报成都汽车碰撞起火司机死亡</a> [15] <font color='grey'>- 16时22分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7559898682808634934/" target="_blank" class="news-link">成都通报天府大道汽车起火致1死</a> [16] <font color='grey'>- 16时22分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">华为 任正非 鸿蒙 HarmonyOS</td>
+                <td class="count">1</td>
+                <td class="percentage">2.08%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2166988" target="_blank" class="news-link">华为、阿里等巨头捧场，智元、宇树新秀助阵 中国移动这场大会“AI+”含金量高</a> [13] <font color='grey'>- 16时22分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">比亚迪 王传福 新能源</td>
+                <td class="count">1</td>
+                <td class="percentage">2.08%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2167353" target="_blank" class="news-link">9月乘用车零售再破历史峰值：上汽时隔五月重夺“销冠” 比亚迪同比首现负增长</a> [8] <font color='grey'>- 16时22分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">马斯克 特斯拉</td>
+                <td class="count">1</td>
+                <td class="percentage">2.08%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E8%91%A3%E6%98%8E%E7%8F%A0%E7%A7%B0%E6%A0%BC%E5%8A%9B%E5%90%91%E7%89%B9%E6%96%AF%E6%8B%89%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1" target="_blank" class="news-link">董明珠称格力向特斯拉提供服务</a> [29] <font color='grey'>- 16时22分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">机器人</td>
+                <td class="count">1</td>
+                <td class="percentage">2.08%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3757056" target="_blank" class="news-link">超预期！中国9月以美元计价出口同比增长8.3%，进口同比增7.4% 工业机器人和风电出口增长强劲</a> [9] <font color='grey'>- 16时22分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">芯片 半导体 光刻机</td>
+                <td class="count">1</td>
+                <td class="percentage">2.08%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3757054" target="_blank" class="news-link">A股低开高走，沪指较日低回升近100点，稀土爆发，港股跌幅收窄，半导体拉升，国债涨，商品跌</a> [8] <font color='grey'>- 16时22分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>7</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">1</td>
+                <td class="percentage">2.08%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7560582028605787690/" target="_blank" class="news-link">美政府停摆近两周 特朗普趁机大裁员</a> [14] <font color='grey'>- 16时22分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

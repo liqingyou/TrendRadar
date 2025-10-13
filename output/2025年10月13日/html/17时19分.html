@@ -1,0 +1,103 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 33</p><p>生成时间: 2025-10-13 17:19:38</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">3</td>
+                <td class="percentage">9.09%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://v.ifeng.com/c/8nPy3kqkstT" target="_blank" class="news-link">被媒体问及是否会收回关于中国的话，特朗普急了：你们都是假新闻</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 17时19分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8nQ9kp93yNC" target="_blank" class="news-link">内塔尼亚胡和特朗普均表示，“加沙战争已结束”</a> [6] <font color='grey'>- 17时19分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7560604471064006180/" target="_blank" class="news-link">专家：特朗普对华打法该变了</a> [26] <font color='grey'>- 17时19分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">大A A股 量化 国家 纳指 ETF</td>
+                <td class="count">2</td>
+                <td class="percentage">6.06%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3757049" target="_blank" class="news-link">TACO交易？美股纳指期货涨2%，科技股盘前集体走高，数字货币大幅反弹，黄金续创新高</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 17时19分</font></div><br><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3757054" target="_blank" class="news-link">A股低开高走，沪指较日低回升近100点，稀土爆发，恒指跌1.5%，金山软件大涨超13%，国债涨，商品跌</a> [7] <font color='grey'>- 17时19分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">黑神话 冯骥</td>
+                <td class="count">1</td>
+                <td class="percentage">3.03%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=%E6%89%8B%E6%90%93%E8%BF%98%E5%8E%9F%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA%E7%8C%B4%E5%A4%B4" target="_blank" class="news-link">手搓还原黑神话悟空猴头</a> [22] <font color='grey'>- 17时19分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">iphone ipad mac ios</td>
+                <td class="count">1</td>
+                <td class="percentage">3.03%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3DiPhone%E7%9A%84%E4%B8%80%E7%94%9F%E8%A6%81%E7%BB%8F%E5%8E%86%E4%B8%89%E6%AC%A1%E6%AD%BB%E4%BA%A1&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26filter_type%3Drealtimehot%26realpos%3D18%26c_type%3D31%26dgr%3D0%26cate%3D5001%26band_rank%3D18%26pos%3D18%26flag%3D1%26q%3DiPhone%25E7%259A%2584%25E4%25B8%2580%25E7%2594%259F%25E8%25A6%2581%25E7%25BB%258F%25E5%258E%2586%25E4%25B8%2589%25E6%25AC%25A1%25E6%25AD%25BB%25E4%25BA%25A1%26lcate%3D5001%26stream_entry_id%3D31%26display_time%3D1760347174%26pre_seqid%3D17603471747740371445491" target="_blank" class="news-link">iPhone的一生要经历三次死亡</a> [18] <font color='grey'>- 17时19分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

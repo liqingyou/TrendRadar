@@ -1,0 +1,135 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 84</p><p>生成时间: 2025-10-14 09:10:18</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">5</td>
+                <td class="percentage">5.95%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8nR9cG7cgW3" target="_blank" class="news-link">以色列送了特朗普一个特别的礼物</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 09时10分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9A%E5%85%A8%E4%B8%96%E7%95%8C%E5%8F%88%E5%BC%80%E5%A7%8B%E5%96%9C%E6%AC%A2%E4%BB%A5%E8%89%B2%E5%88%97%E4%BA%86" target="_blank" class="news-link">特朗普：全世界又开始喜欢以色列了</a> [12] <font color='grey'>- 09时10分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2168255" target="_blank" class="news-link">美联储保尔森支持今年再降息两次，主张“忽略关税影响”</a> [13] <font color='grey'>- 09时10分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7560845798087331364/" target="_blank" class="news-link">特朗普的100%关税威胁是政治表演吗</a> [14] <font color='grey'>- 09时10分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%B9%E6%9C%97%E6%99%AE%E6%BC%94%E8%AE%B2%E9%81%AD%E6%8A%97%E8%AE%AE%E8%80%85%E6%89%93%E6%96%AD+%E7%8E%B0%E5%9C%BA%E5%99%98%E8%B5%B7%E5%98%B4" target="_blank" class="news-link">特朗普演讲遭抗议者打断 现场噘起嘴</a> [16] <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">马斯克 特斯拉</td>
+                <td class="count">2</td>
+                <td class="percentage">2.38%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7560848593934880294/" target="_blank" class="news-link">特斯拉市值一夜大增745亿美元</a> [9] <font color='grey'>- 09时10分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E9%A9%AC%E6%96%AF%E5%85%8B%E7%AC%AC%E4%BA%8C%E4%BB%A3%E6%98%9F%E8%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E8%AF%95%E9%A3%9E" target="_blank" class="news-link">马斯克第二代星舰最后一次试飞</a> [23] <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">金融 证券 贷款 消费 央行</td>
+                <td class="count">2</td>
+                <td class="percentage">2.38%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1955932278099244261" target="_blank" class="news-link">为什么消费者现在对过度营销这么反感？</a> [7] <font color='grey'>- 09时10分</font></div><br><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1960748705771647561" target="_blank" class="news-link">年轻人把冰箱门变成「旅行回忆录」，收藏的冰箱贴已经比冰箱贵了，如何看待这一现象？透露了哪些消费心理？</a> [13] <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">chatgpt openai</td>
+                <td class="count">1</td>
+                <td class="percentage">1.19%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2168170" target="_blank" class="news-link">OpenAI下订博通10GW定制芯片 AI巨头放言“这才是九牛一毛”</a> [7] <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">机器人</td>
+                <td class="count">1</td>
+                <td class="percentage">1.19%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/266811517" target="_blank" class="news-link">如果机器人统治地球，那么为什么要留着人类？</a> [15] <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>6</td>
+                <td class="word">美股 标普</td>
+                <td class="count">1</td>
+                <td class="percentage">1.19%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3757049" target="_blank" class="news-link">科技股力撑美股反弹，博通涨近10%，黄金突破4100关口，历史性逼空助白银新高</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>7</td>
+                <td class="word">空袭 战争</td>
+                <td class="count">1</td>
+                <td class="percentage">1.19%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8nR93yiNTjh" target="_blank" class="news-link">美以宣布“加沙战争”结束，模糊的协议承载不了巴以和平</a> <font color='red'><strong>[3]</strong></font> <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>8</td>
+                <td class="word">科技</td>
+                <td class="count">1</td>
+                <td class="percentage">1.19%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7560700840323845686/" target="_blank" class="news-link">闻泰科技资产被荷兰冻结影响几何</a> [20] <font color='grey'>- 09时10分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

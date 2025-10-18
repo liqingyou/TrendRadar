@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 66</p><p>生成时间: 2025-10-18 09:08:04</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">iphone ipad mac ios</td>
+                <td class="count">3</td>
+                <td class="percentage">4.55%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3DiPhone%E5%A4%A9%E6%B0%94%E4%BD%A0%E5%8F%AF%E8%83%BD%E7%9C%9F%E7%9A%84%E4%B8%8D%E4%BC%9A%E7%94%A8&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26flag%3D1%26band_rank%3D7%26pos%3D6%26q%3DiPhone%25E5%25A4%25A9%25E6%25B0%2594%25E4%25BD%25A0%25E5%258F%25AF%25E8%2583%25BD%25E7%259C%259F%25E7%259A%2584%25E4%25B8%258D%25E4%25BC%259A%25E7%2594%25A8%26cate%3D5001%26stream_entry_id%3D31%26filter_type%3Drealtimehot%26c_type%3D31%26realpos%3D7%26dgr%3D0%26lcate%3D5001%26display_time%3D1760748010%26pre_seqid%3D176074801016002728934111" target="_blank" class="news-link">iPhone天气你可能真的不会用</a> [7] <font color='grey'>- 09时08分</font></div><br><div class='new-title'>🆕 [抖音] <a href="https://www.douyin.com/hot/2272955" target="_blank" class="news-link">iPhone Air首批售罄</a> [18] <font color='grey'>- 09时08分</font></div><br><div class='new-title'>🆕 [抖音] <a href="https://www.douyin.com/hot/2273469" target="_blank" class="news-link">iPhone Air全颜色开箱</a> [22] <font color='grey'>- 09时08分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">3</td>
+                <td class="percentage">4.55%</td>
+                <td class="titles"><div class='new-title'>🆕 [凤凰网] <a href="https://news.ifeng.com/c/8nXp14yHS6o" target="_blank" class="news-link">特朗普罕见承认，高关税威胁中国的策略不可持续</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 09时08分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E6%B3%BD%E8%BF%9E%E6%96%AF%E5%9F%BA%E7%A9%BF%E4%B8%8A%E6%AD%A3%E8%A3%85+%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9A%E6%88%91%E5%BE%88%E5%96%9C%E6%AC%A2" target="_blank" class="news-link">泽连斯基穿上正装 特朗普：我很喜欢</a> [18] <font color='grey'>- 09时08分</font></div><br><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E7%89%9B%E5%BC%B9%E7%90%B4%EF%BC%9A%E6%B3%BD%E8%BF%9E%E6%96%AF%E5%9F%BA%E5%8F%88%E8%A2%AB%E7%89%B9%E6%9C%97%E6%99%AE%E6%88%8F%E5%BC%84%E4%BA%86" target="_blank" class="news-link">牛弹琴：泽连斯基又被特朗普戏弄了</a> [27] <font color='grey'>- 09时08分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">汽车 自动驾驶 l3</td>
+                <td class="count">1</td>
+                <td class="percentage">1.52%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7561590534926712875/" target="_blank" class="news-link">我国已召回汽车1.2亿辆</a> <font color='red'><strong>[4]</strong></font> <font color='grey'>- 09时08分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">芯片 半导体 光刻机</td>
+                <td class="count">1</td>
+                <td class="percentage">1.52%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7561914493303849003/" target="_blank" class="news-link">安世半导体内乱始末</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 09时08分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">美股 标普</td>
+                <td class="count">1</td>
+                <td class="percentage">1.52%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7562026461385834537/" target="_blank" class="news-link">美股三大指数集体收涨</a> [10] <font color='grey'>- 09时08分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

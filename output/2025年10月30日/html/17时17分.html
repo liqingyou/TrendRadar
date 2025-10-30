@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 40</p><p>生成时间: 2025-10-30 17:17:41</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">5</td>
+                <td class="percentage">12.5%</td>
+                <td class="titles"><div class='new-title'>🆕 [华尔街见闻] <a href="https://wallstreetcn.com/articles/3758273" target="_blank" class="news-link">习近平同美国总统特朗普在釜山举行会晤</a> [10] <font color='grey'>- 17时17分</font></div><br><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E7%89%B9%E6%9C%97%E6%99%AE%E5%BA%A7%E9%A9%BE%E7%8E%B0%E8%BA%AB%E9%9F%A9%E5%9B%BD%E8%A1%97%E5%A4%B4%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26stream_entry_id%3D31%26band_rank%3D10%26flag%3D1%26filter_type%3Drealtimehot%26realpos%3D10%26c_type%3D31%26lcate%3D5001%26q%3D%2523%25E7%2589%25B9%25E6%259C%2597%25E6%2599%25AE%25E5%25BA%25A7%25E9%25A9%25BE%25E7%258E%25B0%25E8%25BA%25AB%25E9%259F%25A9%25E5%259B%25BD%25E8%25A1%2597%25E5%25A4%25B4%2523%26cate%3D5001%26dgr%3D0%26pos%3D10%26display_time%3D1761815219%26pre_seqid%3D17618152193910361971793" target="_blank" class="news-link">特朗普座驾现身韩国街头</a> [10] <font color='grey'>- 17时17分</font></div><br><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2186192" target="_blank" class="news-link">特朗普下令重启核试验，外交部回应</a> [13] <font color='grey'>- 17时17分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31854127" target="_blank" class="news-link">美联储再降息25个基点，鲍威尔称政府“停摆”将影响经济</a> [19] <font color='grey'>- 17时17分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31855405" target="_blank" class="news-link">习近平同美国总统特朗普在釜山举行会晤</a> [20] <font color='grey'>- 17时17分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">黄仁勋 英伟达 NVIDIA</td>
+                <td class="count">1</td>
+                <td class="percentage">2.5%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2185594" target="_blank" class="news-link">英伟达市值站上5万亿美元 分析师热议：涨势能否延续？</a> [12] <font color='grey'>- 17时17分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">空袭 战争</td>
+                <td class="count">1</td>
+                <td class="percentage">2.5%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1967204074320552045" target="_blank" class="news-link">如何评价《崩坏：星穹铁道》战前快讯•其三 | 反铁墓战争最新资讯？</a> [10] <font color='grey'>- 17时17分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">金融 证券 贷款 消费 央行</td>
+                <td class="count">1</td>
+                <td class="percentage">2.5%</td>
+                <td class="titles"><div class='new-title'>🆕 [财联社热门] <a href="https://www.cls.cn/detail/2186248" target="_blank" class="news-link">支持提振消费！免税店政策11月1日起“升级”</a> [10] <font color='grey'>- 17时17分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">科技</td>
+                <td class="count">1</td>
+                <td class="percentage">2.5%</td>
+                <td class="titles"><div class='new-title'>🆕 [百度热搜] <a href="https://www.baidu.com/s?wd=%E4%B8%AD%E5%9B%BD%E7%A7%91%E6%8A%80%E8%AE%BA%E6%96%87%E5%A4%9A%E9%A1%B9%E6%8C%87%E6%A0%87%E8%9D%89%E8%81%94%E4%B8%96%E7%95%8C%E7%AC%AC%E4%B8%80" target="_blank" class="news-link">中国科技论文多项指标蝉联世界第一</a> [22] <font color='grey'>- 17时17分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    

@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>频率词统计报告</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            tr:nth-child(even) { background-color: #f9f9f9; }
+            .word { font-weight: bold; }
+            .count { text-align: center; }
+            .percentage { text-align: center; }
+            .titles { max-width: 500px; }
+            .source { color: #666; font-style: italic; }
+            .error { color: #d9534f; }
+            .news-link { 
+                color: #007bff; 
+                text-decoration: none; 
+                border-bottom: 1px dotted #007bff;
+            }
+            .news-link:hover { 
+                color: #0056b3; 
+                text-decoration: underline; 
+            }
+            .news-link:visited { 
+                color: #6f42c1; 
+            }
+            .no-link { 
+                color: #333; 
+            }
+            .new-title {
+                background-color: #fff3cd;
+                border: 1px solid #ffc107;
+                border-radius: 3px;
+                padding: 2px 6px;
+                margin: 2px 0;
+            }
+            .new-section {
+                background-color: #d1ecf1;
+                border: 1px solid #bee5eb;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .new-section h3 {
+                color: #0c5460;
+                margin-top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>频率词统计报告</h1>
+    <p>报告类型: 实时分析</p><p>总标题数: 52</p><p>生成时间: 2025-10-30 20:33:08</p>
+        <table>
+            <tr>
+                <th>排名</th>
+                <th>频率词</th>
+                <th>出现次数</th>
+                <th>占比</th>
+                <th>相关标题</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td class="word">特朗普 川普 美联储</td>
+                <td class="count">4</td>
+                <td class="percentage">7.69%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=%E4%B9%A0%E8%BF%91%E5%B9%B3%E4%B8%8E%E7%89%B9%E6%9C%97%E6%99%AE%E4%BC%9A%E6%99%A4%20%E5%AE%8C%E6%95%B4%E8%A7%86%E9%A2%91" target="_blank" class="news-link">习近平与特朗普会晤 完整视频</a> <font color='red'><strong>[1]</strong></font> <font color='grey'>- 20时33分</font></div><br><div class='new-title'>🆕 [凤凰网] <a href="https://v.ifeng.com/c/8nsXkNaHAu2" target="_blank" class="news-link">金正恩为何不见特朗普？</a> <font color='red'><strong>[5]</strong></font> <font color='grey'>- 20时33分</font></div><br><div class='new-title'>🆕 [澎湃新闻] <a href="https://m.thepaper.cn/newsDetail_forward_31855712" target="_blank" class="news-link">视频丨习近平同美国总统特朗普在釜山举行会晤</a> [10] <font color='grey'>- 20时33分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7566945252511059482/" target="_blank" class="news-link">特朗普透露计划明年4月访华</a> [17] <font color='grey'>- 20时33分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>2</td>
+                <td class="word">大A A股 量化 国家 纳指 ETF</td>
+                <td class="count">2</td>
+                <td class="percentage">3.85%</td>
+                <td class="titles"><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7566957124966682150/" target="_blank" class="news-link">明天A股市场能否反包大涨</a> [12] <font color='grey'>- 20时33分</font></div><br><div class='new-title'>🆕 [今日头条] <a href="https://www.toutiao.com/trending/7566806180916707370/" target="_blank" class="news-link">国家一级运动员去世父母捐献遗体</a> [18] <font color='grey'>- 20时33分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>3</td>
+                <td class="word">京东 刘强东</td>
+                <td class="count">1</td>
+                <td class="percentage">1.92%</td>
+                <td class="titles"><div class='new-title'>🆕 [微博] <a href="https://m.weibo.cn/search?containerid=100103type%3D1%26t%3D10%26q%3D%23%E4%BB%8A%E6%99%9A%E5%85%AB%E7%82%B9%E4%BA%AC%E4%B8%9C%E9%A6%96%E5%8F%91%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%96%B0%E5%93%81%23&amp;stream_entry_id=31&amp;isnewpage=1&amp;extparam=seat%3D1%26flag%3D1%26filter_type%3Drealtimehot%26c_type%3D31%26lcate%3D5001%26cate%3D5001%26realpos%3D28%26q%3D%2523%25E4%25BB%258A%25E6%2599%259A%25E5%2585%25AB%25E7%2582%25B9%25E4%25BA%25AC%25E4%25B8%259C%25E9%25A6%2596%25E5%258F%2591%25E6%259C%25BA%25E5%2599%25A8%25E4%25BA%25BA%25E6%2596%25B0%25E5%2593%2581%2523%26dgr%3D0%26stream_entry_id%3D31%26band_rank%3D28%26pos%3D29%26display_time%3D1761826207%26pre_seqid%3D17618262069520267584114" target="_blank" class="news-link">今晚八点京东首发机器人新品</a> [28] <font color='grey'>- 20时33分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>4</td>
+                <td class="word">AI ai 人工智能</td>
+                <td class="count">1</td>
+                <td class="percentage">1.92%</td>
+                <td class="titles"><div class='new-title'>🆕 [bilibili 热搜] <a href="https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E8%87%AA%E5%88%B6%E7%9A%84AI%E7%9C%BC%E9%95%9C%E5%8F%91%E5%B8%83%E4%BA%86" target="_blank" class="news-link">UP主自制的AI眼镜发布了</a> [15] <font color='grey'>- 20时33分</font></div></td>
+            </tr>
+        
+            <tr>
+                <td>5</td>
+                <td class="word">游戏</td>
+                <td class="count">1</td>
+                <td class="percentage">1.92%</td>
+                <td class="titles"><div class='new-title'>🆕 [知乎] <a href="https://www.zhihu.com/question/1966538200693598102" target="_blank" class="news-link">《丝之歌》七年磨一剑、《动物井》同样是七年开发时光，国产游戏有可能诞生这样不计时间成本制作的作品吗？</a> [14] <font color='grey'>- 20时33分</font></div></td>
+            </tr>
+        
+        </table>
+    
+    </body>
+    </html>
+    
